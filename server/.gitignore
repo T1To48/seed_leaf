@@ -6,6 +6,3 @@ __pycache__/
 
 # Environment variables file
 .env
-
-# mac files
-.DS_Store
