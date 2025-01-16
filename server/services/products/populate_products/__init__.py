@@ -1,0 +1,1 @@
+from .populate_products import populate_products_list

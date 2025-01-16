@@ -1,0 +1,1 @@
+from .register import validate_user_registeration

@@ -1,0 +1,11 @@
+# virtual environment folder
+.venv
+
+# python bytecode cache
+__pycache__/
+
+# Environment variables file
+.env
+
+# mac files
+.DS_Store
