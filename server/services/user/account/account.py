@@ -1,10 +1,11 @@
 from flask import Blueprint, request
+from werkzeug.security import check_password_hash
 
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from config import connect_db
 from utils import (quick_response,
                     get_from_database, update_row_database,
-                    is_email_valid,is_info_valid)
+                    is_email_valid,is_info_valid,is_password_valid,hash_password)
 
 user_account_bp = Blueprint("user_account", __name__)
 
@@ -86,3 +87,44 @@ def update_user_account_details():
         return quick_response("Email already in use",False,409)
     
     return quick_response("Successfully Updated")
+
+@user_account_bp.route("/change-password",methods=["PUT"])
+@jwt_required()
+def change_user_account_password():
+    user_id = get_jwt_identity()
+    if not request.is_json:
+        return quick_response("Invalid request body object", False, 400)
+    
+    
+    current_password = request.get_json().get("current_password")
+    new_password = request.get_json().get("new_password")
+
+    
+    exec_statement = """SELECT password_hash FROM users WHERE user_id = %s"""
+    current_password_hash = get_from_database(exec_statement,[user_id],True).get("password_hash")
+
+    if not check_password_hash(current_password_hash,current_password):
+        return quick_response("Incorrect password",False,401)
+    
+    if not is_password_valid(new_password):
+        return quick_response("Invalid new password",False,400)
+    
+    new_password_hash = hash_password(new_password)
+
+    exec_statement ="""UPDATE users SET password_hash = %s WHERE user_id = %s"""
+    data_list = [new_password_hash , user_id]
+    db_password_update = update_row_database(exec_statement,data_list)
+
+    if not db_password_update:
+        return quick_response("Failed changing the password",False,400)
+    elif db_password_update in ["DB_ERROR","IntegrityError"]:
+        return quick_response("an error occured, please try again", False, 500)
+
+    return quick_response("Password successfully updated")
+
+
+
+
+
+
+
