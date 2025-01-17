@@ -1,7 +1,7 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from werkzeug.security import check_password_hash
 
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity,unset_jwt_cookies
 from config import connect_db
 from utils import (quick_response,
                     get_from_database, update_row_database,
@@ -121,6 +121,41 @@ def change_user_account_password():
         return quick_response("an error occured, please try again", False, 500)
 
     return quick_response("Password successfully updated")
+
+
+@user_account_bp.route("/delete",methods=["DELETE"])
+@jwt_required()
+def delete_user_account():
+    user_id = [get_jwt_identity()]
+    
+    if not request.is_json:
+        return quick_response("Invalid request body object", False, 400)
+    
+    user_password = request.get_json().get("password")
+
+    exec_statement = """SELECT password_hash FROM users WHERE user_id = %s"""
+    user_password_hash = get_from_database(exec_statement,user_id,True).get("password_hash")
+
+    if not check_password_hash(user_password_hash,user_password):
+        return quick_response("Incorrect password",False,401)
+
+    exec_statement = """DELETE FROM users WHERE user_id = %s"""
+
+    db_account_delete = update_row_database(exec_statement,user_id)
+
+    if not db_account_delete:
+        return quick_response("Failed changing the password",False,400)
+    elif db_account_delete in ["DB_ERROR","IntegrityError"]:
+        return quick_response("an error occured, please try again", False, 500)
+
+    response =jsonify({
+        "success":True,
+        "data":"Account Deleted"
+        })
+    unset_jwt_cookies(response)
+    return response, 200
+
+
 
 
 
