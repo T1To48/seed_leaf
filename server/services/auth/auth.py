@@ -60,16 +60,16 @@ def login():
     db_user_info = get_user_id_and_password_hash(email)
 
     if not db_user_info:
-        return quick_response("Email Address, not found",False,404)
+        return quick_response("Email address, not found",False,404)
     
     # if connecting to DB fails:
     elif db_user_info == "DB ERROR":
-        return quick_response("an error occured, please try again",False,500)
+        return quick_response("An error occured, please try again",False,500)
     
     password_hash, user_id = db_user_info
     check_login_password = check_password_hash(password_hash,password)
     if not check_login_password:
-        return quick_response("Incorrect Password",False,401)
+        return quick_response("Incorrect password",False,401)
     elif  check_login_password:
         response = jsonify({
             "success":True,
