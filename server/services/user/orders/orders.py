@@ -75,11 +75,12 @@ def get_orders_list():
     orders_count=count_orders_database(user_id)
     orders_limit_per_page=10
     total_pages=math.ceil(orders_count/orders_limit_per_page)
+
+    if total_pages == 0:
+             return quick_response("No Orders where found",False,400)
+
     try:
         current_page = int(current_page)
-
-        if total_pages == 0:
-             return quick_response("No Orders where found",False,400)
         
         if current_page <0 or current_page>total_pages:
              raise ValueError
