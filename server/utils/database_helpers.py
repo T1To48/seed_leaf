@@ -62,15 +62,11 @@ def update_row_database(exec_statement,data_list):
 def count_orders_database(user_id):
     exec_statement = """SELECT COUNT(*) AS orders_count FROM orders WHERE user_id = %s"""
     orders_count = get_from_database(exec_statement,[user_id],True)["orders_count"]
-    print("😀"*8,"total count:",orders_count)
     return int(orders_count)
 
 def count_products_database(category,min_price,max_price):
     data_list = [category,min_price,max_price]
 
-    # print("👿"*12)
-    # print("data_list",data_list)
-    # print("👿"*12)
     exec_statement = """SELECT COUNT(*) FROM products WHERE product_category = %s AND product_price BETWEEN %s AND %s"""
     if category == "all":
         data_list = data_list[1:]
