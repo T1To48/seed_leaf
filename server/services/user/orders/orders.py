@@ -78,9 +78,12 @@ def get_orders_list():
     try:
         current_page = int(current_page)
 
-        if current_page <=0 or current_page>total_pages:
+        if total_pages == 0:
+             return quick_response("No Orders where found",False,400)
+        
+        if current_page <0 or current_page>total_pages:
              raise ValueError
-
+        
     except (ValueError,TypeError):
         return quick_response("Invalid page number",False,400)
     
