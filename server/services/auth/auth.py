@@ -3,7 +3,8 @@ from flask import Blueprint,request,jsonify
 from mysql.connector import IntegrityError
 from werkzeug.security import check_password_hash
 from flask_jwt_extended import (create_access_token,set_access_cookies,
-                                create_refresh_token,set_refresh_cookies)
+                                create_refresh_token,set_refresh_cookies,jwt_required,
+                                get_jwt_identity,unset_jwt_cookies)
 
 from config import connect_db
 from utils import (quick_response,is_email_valid,
@@ -81,3 +82,13 @@ def login():
         set_refresh_cookies(response,refresh_token)
         return response,200
 
+@auth_bp.route("/logout",methods=["POST"])
+@jwt_required()
+def logout():
+
+    response = jsonify({
+        "success":True,
+        "data":"User logged out"
+    })
+    unset_jwt_cookies(response)
+    return response, 200
