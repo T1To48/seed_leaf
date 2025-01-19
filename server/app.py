@@ -23,8 +23,8 @@ app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(minutes=15)
 app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=7)
 app.config["JWT_ALGORITHM"] = "HS256"
 app.config["JWT_TOKEN_LOCATION"] = "cookies"
-app.config["JWT_ACCESS_COOKIE_NAME"] ="acc_cookie"
-app.config["JWT_REFRESH_COOKIE_NAME"] ="ref_cookie"
+app.config["JWT_ACCESS_COOKIE_NAME"] ="acc_token"
+app.config["JWT_REFRESH_COOKIE_NAME"] ="ref_token"
 # app.config["JWT_ACCESS_COOKIE_PATH"] ="/api/v1/user"
 # app.config["JWT_REFRESH_COOKIE_PATH"] ="/api/v1/user"
 app.config["JWT_COOKIE_SAMESITE"] ="Strict"
