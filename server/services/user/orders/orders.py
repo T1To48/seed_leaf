@@ -11,11 +11,12 @@ orders_bp=Blueprint("orders",__name__)
 @orders_bp.route("/new",methods=["POST"])
 @jwt_required()
 def create_new_order():
-    user_id=get_jwt_identity()
     if not request.is_json:
         return quick_response("Invalid request body object",False,400)
     
+    user_id=get_jwt_identity()
     order_price= request.get_json().get("order_price")
+    order_id=generate_unique_ID()
     
     try:
         if order_price <= 0:
@@ -25,7 +26,6 @@ def create_new_order():
     except (ValueError,TypeError):
         return quick_response("Invalid order price",False,400)
     
-    order_id=generate_unique_ID()
 
     connection = connect_db()
     cursor=connection.cursor()
