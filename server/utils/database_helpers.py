@@ -43,7 +43,8 @@ def update_row_database(exec_statement,data_list):
         connection.commit()
         return True
     except IntegrityError as err:
-        print("👺"*8,err)
+        print("👺 "*8)
+        print("IntegrityError=>",err)
         if connection.is_connected():
             connection.rollback()
         return "IntegrityError"
@@ -90,3 +91,11 @@ def get_products_price_range(category):
     price_range = map(float,price_range)
     return list(price_range)
 
+def is_product_id_valid(product_id):
+    exec_statement = """SELECT product_id FROM products WHERE product_id = %s"""
+    product_id_database = get_from_database(exec_statement,[product_id],True)
+    print(product_id_database)
+    if not product_id_database:
+        return False
+    product_id_database = product_id_database.get("product_id")
+    return product_id == product_id_database
