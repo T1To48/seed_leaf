@@ -33,3 +33,11 @@ def add_item_to_cart(product_id):
 
 
     return quick_response("product added to cart")
+
+@cart_bp.route("/remove-item/<string:product_id>",methods=["PUT"])
+@jwt_required()
+def remove_item_from_cart(product_id):
+    user_id = get_jwt_identity()
+    remove_type=request.args.get("type")
+    allowed_remove_values={"all","one"}
+    return {"success":True}
