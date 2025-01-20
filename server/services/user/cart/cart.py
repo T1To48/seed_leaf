@@ -12,6 +12,8 @@ cart_bp = Blueprint('cart',__name__)
 def add_item_to_cart(product_id):
     user_id = get_jwt_identity()
     quantity = 1
+
+    # check if product-id is in database
     if not is_product_id_valid(product_id):
         return quick_response("Invalid product id",False,400)
     
@@ -38,6 +40,13 @@ def add_item_to_cart(product_id):
 @jwt_required()
 def remove_item_from_cart(product_id):
     user_id = get_jwt_identity()
-    remove_type=request.args.get("type")
+    remove_type=request.args.get("type").lower()
     allowed_remove_values={"all","one"}
+
+    # check if product-id is in database
+    if not is_product_id_valid(product_id):
+        return quick_response("Invalid product id",False,400)
+
+    # check if produt is in user cart
+
     return {"success":True}
