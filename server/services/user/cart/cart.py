@@ -34,7 +34,7 @@ def add_item_to_cart(product_id):
         
     return quick_response("product added to cart")
 
-@cart_bp.route("/remove-item/<string:product_id>",methods=["PUT"])
+@cart_bp.route("/remove-item/<string:product_id>",methods=["DELETE"])
 @jwt_required()
 def remove_item_from_cart(product_id):
     user_id = get_jwt_identity()
@@ -47,13 +47,13 @@ def remove_item_from_cart(product_id):
     if remove_type =="one":
         db_cart_quantity_update = update_cart_product_quantity(user_id,product_id,-1)
         if not db_cart_quantity_update:
-            return quick_response("Failed removing item from cart",False,400)
+            return quick_response("Product not in cart",False,400)
         return quick_response("updated in-cart product quantity (-1)")
     
     elif remove_type == "all":
         db_cart_product_delete= delete_cart_product(user_id,product_id)
         if not db_cart_product_delete:
-            return quick_response("Failed deleting product",False,400)
+            return quick_response("Product not in cart",False,400)
         return quick_response("Product removed from cart")
     
     else:
