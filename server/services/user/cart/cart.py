@@ -28,7 +28,7 @@ def add_item_to_cart(product_id):
         db_cart_quantity_update = update_cart_product_quantity(user_id,product_id)
         if not db_cart_quantity_update:
             return quick_response("Failed adding item to cart",400)
-        return quick_response("updated in cart product quantity")
+        return quick_response("updated in-cart product quantity")
         
 
 
