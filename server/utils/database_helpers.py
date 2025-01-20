@@ -43,8 +43,8 @@ def update_row_database(exec_statement,data_list):
         connection.commit()
         return True
     except IntegrityError as err:
-        print("👺 "*8)
-        print("IntegrityError=>",err)
+        # print("👺 "*8)
+        # print("IntegrityError=>",err)
         if connection.is_connected():
             connection.rollback()
         return "IntegrityError"
