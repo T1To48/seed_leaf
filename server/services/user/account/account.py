@@ -144,7 +144,7 @@ def delete_user_account():
     db_account_delete = update_row_database(exec_statement,user_id)
 
     if not db_account_delete:
-        return quick_response("Failed changing the password",False,400)
+        return quick_response("Failed deleting account",False,400)
     elif db_account_delete in ["DB_ERROR","IntegrityError"]:
         return quick_response("an error occured, please try again", False, 500)
 
