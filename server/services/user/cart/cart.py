@@ -59,4 +59,17 @@ def remove_item_from_cart(product_id):
     else:
         return quick_response("Invalid remove type, [`one`, `all`]",False,400)
     
+@cart_bp.route("/items")
+@jwt_required()
+def get_cart():
+    user_id=[get_jwt_identity()]
+    exec_statement = """SELECT * from cart_items WHERE user_id = %s"""
 
+    db_cart_products = get_from_database(exec_statement,user_id)
+    
+    if not db_cart_products:
+        return quick_response("Cart is empty")
+    if db_cart_products == "DB_ERROR":
+        return quick_response("an error occured, please try again", False, 500)
+    return db_cart_products
+    
