@@ -4,7 +4,8 @@ import math
 from flask_jwt_extended import jwt_required,get_jwt,get_jwt_identity
 from config import connect_db
 
-from cart import get_cart_from_database
+from .orders_helpers import add_order_database,populate_order_products_database
+from ..cart.cart_helpers import get_cart_from_database
 from utils import (quick_response,generate_unique_ID,
                    get_from_database,count_orders_database)
 
@@ -17,32 +18,35 @@ orders_bp=Blueprint("orders",__name__)
 def create_new_order():
 
     #$ required for future payment details (credit card details) AS request's Body
-    if not request.is_json:
+    if not request.is_json and False:
         return quick_response("Invalid request body object",False,400)
-    order_id=generate_unique_ID()
     user_id=get_jwt_identity()
     
     # 1.get Cart from database
-        # cart = get_cart_from_database()
+    cart = get_cart_from_database(user_id)
 
-    # 2.cart_total_price:
-        # cart_total_price=cart["cart_total"]
-
+    if not cart:
+         return quick_response("Cart is Empty",False,400)
+    if cart == "DB_ERROR":
+         return quick_response("an error occured, please try again",False,500)
+    
+    order_id = generate_unique_ID()
+    order_price = cart.get("cart_total")
+    cart_products_list = cart.get("products_list")
     # 3. make payment    
-    #  is_paid = make_payment(creditcard_details, cart_total_price)
+    #  is_paid = make_payment(creditcard_details, order_price)
 
-    #!  NOT NEED          
-    order_price= request.get_json().get("order_price")
+    # 4. add new order to orders table in database 
+    db_new_order = add_order_database(user_id,order_id,order_price)
+    if not db_new_order:
+         return quick_response("Order creation failed",False,400)
     
-    #!  NOT NEED          
-    try:
-        if order_price <= 0:
-             raise ValueError
+    # 5. add order_products to order_products_junction in database 
+    db_order_products = populate_order_products_database(order_id,cart_products_list)
+    if not db_order_products:
+         return quick_response("failed populating order products",False,400)
+    return quick_response("order added succefully")
         
-        order_price = float(order_price)
-    except (ValueError,TypeError):
-        return quick_response("Invalid order price",False,400)
-    
     #` helper FUNCTION  [D.R.Y]       
     connection = connect_db()
     cursor=connection.cursor()
