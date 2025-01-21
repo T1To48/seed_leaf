@@ -2,7 +2,7 @@ from flask import Blueprint,request
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from utils import quick_response,is_product_id_valid,get_from_database,update_row_database
 
-from .cart_helpers import update_cart_product_quantity,delete_cart_product
+from .cart_helpers import update_cart_product_quantity,delete_cart_product,get_cart_from_database
 # create a blueprint for cart
 cart_bp = Blueprint('cart',__name__)
 
@@ -62,14 +62,36 @@ def remove_item_from_cart(product_id):
 @cart_bp.route("/items")
 @jwt_required()
 def get_cart():
-    user_id=[get_jwt_identity()]
-    exec_statement = """SELECT * from cart_items WHERE user_id = %s"""
+    user_id=get_jwt_identity()
+    cart = get_cart_from_database(user_id)
 
-    db_cart_products = get_from_database(exec_statement,user_id)
-    
-    if not db_cart_products:
+    if not cart:
         return quick_response("Cart is empty")
-    if db_cart_products == "DB_ERROR":
+    if cart == "DB_ERROR":
         return quick_response("an error occured, please try again", False, 500)
-    return db_cart_products
+    return quick_response(cart)
+    # # exec_statement = """SELECT product_id, quantity from cart_items WHERE user_id = %s"""
+    # exec_statement = """SELECT
+    #                     p.product_id,p.product_name,p.product_category,
+    #                     p.product_price,cart_items.quantity,p.product_img
+    #                     from cart_items
+    #                     join products p on p.product_id = cart_items.product_id where user_id = %s """
+    # db_cart_products = get_from_database(exec_statement,user_id)
+    # db_cart_total = 0
+
+    # for product in db_cart_products:
+    #     price, quantity = [product["product_price"],product["quantity"]]
+    #     product["total_price"]=  price * quantity
+    #     db_cart_total += product["total_price"]
+    
+    # if not db_cart_products:
+    #     return quick_response("Cart is empty")
+    # if db_cart_products == "DB_ERROR":
+    #     return quick_response("an error occured, please try again", False, 500)
+    
+    # response = {
+    #     "products_list":db_cart_products,
+    #     "cart_total":db_cart_total
+    # }
+    # return quick_response(response)
     

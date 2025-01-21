@@ -35,3 +35,29 @@ def delete_cart_product(user_id,product_id):
     
     return False
 
+def get_cart_from_database(user_id):
+    exec_statement = """SELECT
+                        p.product_id,p.product_name,p.product_category,
+                        p.product_price,cart_items.quantity,p.product_img
+                        from cart_items
+                        join products p on p.product_id = cart_items.product_id where user_id = %s """
+    
+    db_cart_products = get_from_database(exec_statement,[user_id])
+    db_cart_total = 0
+
+    if not db_cart_products:
+        return None
+    if db_cart_products == "DB_ERROR":
+        return "DB_ERROR"
+
+    for product in db_cart_products:
+        price, quantity = [product["product_price"],product["quantity"]]
+        product["total_price"]=  price * quantity
+        db_cart_total += product["total_price"]
+    
+    cart = {
+        "products_list":db_cart_products,
+        "cart_total":db_cart_total
+    }
+    return cart
+
