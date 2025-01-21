@@ -11,6 +11,7 @@ from .requests_helpers import (
 from .database_helpers import (
     get_from_database,
     update_row_database,
+    update_many_rows_database,
     count_orders_database,
     get_products_price_range,
     count_products_database,
