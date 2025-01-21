@@ -60,6 +60,28 @@ def update_row_database(exec_statement,data_list):
             connection.close()
     
 
+def update_many_rows_database(exec_statement,data_list):
+    try:
+        connection = connect_db()
+        if not connection:
+            return "DB_ERROR"
+        cursor = connection.cursor()
+        cursor.executemany(exec_statement,data_list)
+        if cursor.rowcount < 1:
+            return None
+        connection.commit()
+        return True
+    except Error as err:
+        print("👺"*8,err)
+        if connection.is_connected():
+            connection.rollback()
+        return "DB_ERROR"
+        
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
 def count_orders_database(user_id):
     exec_statement = """SELECT COUNT(*) AS orders_count FROM orders WHERE user_id = %s"""
     orders_count = get_from_database(exec_statement,[user_id],True)["orders_count"]
