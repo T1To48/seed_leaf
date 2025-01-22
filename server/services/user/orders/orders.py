@@ -4,7 +4,7 @@ import math
 from flask_jwt_extended import jwt_required,get_jwt,get_jwt_identity
 from config import connect_db
 
-from .orders_helpers import add_order_database,populate_order_products_database
+from .orders_helpers import add_order_database,populate_order_products_database,get_order_details_database
 from ..cart.cart_helpers import get_cart_from_database
 from utils import (quick_response,generate_unique_ID,
                    get_from_database,count_orders_database)
@@ -46,39 +46,17 @@ def create_new_order():
     if not db_order_products:
          return quick_response("failed populating order products",False,400)
     return quick_response("order added succefully")
-        
-    #` helper FUNCTION  [D.R.Y]       
-    connection = connect_db()
-    cursor=connection.cursor()
-    cursor.execute("""INSERT INTO orders (order_id,user_id, order_price)
-                   VALUES (%s, %s, %s)""",[order_id,user_id,order_price])
-    
-    if cursor.rowcount !=1:
-        cursor.close()
-        connection.close()
-        return quick_response("failed to insert order to db",False,400)
-    
-    connection.commit()
-    cursor.close()
-    connection.close()
-    return quick_response("order added succefully")
 
 @orders_bp.route("/order-details/<string:order_id>")
 @jwt_required()
 def get_order_by_id(order_id):
     user_id=get_jwt_identity()
     
-    connection = connect_db()
-    cursor = connection.cursor(dictionary=True)
-    cursor.execute(""" SELECT * FROM orders WHERE order_id = %s AND user_id=%s """,[order_id,user_id])
-    cursor_result = cursor.fetchone()
-
-    if not cursor_result:
-            return quick_response("Order not found",False,400)
+    db_order_details = get_order_details_database(user_id,order_id)
+    if not db_order_details:
+         return quick_response("Order not found",False,400)
     
-    cursor_result.pop("user_id",None)
-
-    return quick_response(cursor_result)
+    return quick_response(db_order_details)
 
 @orders_bp.route("/list")
 @jwt_required()
@@ -142,3 +120,5 @@ def get_orders_list():
     # 3.search, by product name => if an order contain a product name that was typed, it is returned
     #4 pagination => return order list as chunks (according to the current page number)
     # request.args
+
+
