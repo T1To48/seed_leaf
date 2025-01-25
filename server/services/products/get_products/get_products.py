@@ -38,17 +38,18 @@ def get_product_img(product_id):
     )
 
     product_details = get_from_database(exec_statement, [product_id], True)
+
+    if not product_details:
+        return quick_response("Product not found", False, 400)
+    elif product_details == "DB_ERROR":
+        return quick_response("an error occured, please try again", False, 500)
+    
     product_img = product_details.get("product_img")
     product_category = product_details.get("product_category")
 
-    if not product_img:
-        return quick_response("Product image not found", False, 400)
-    elif product_img == "DB_ERROR":
-        return quick_response("an error occured, please try again", False, 500)
     path = os.path.abspath(
         f"static/products_images/{product_category}/{product_img}.jpg"
     )
-    print("🙋‍♀️" * 10, path)
     return send_file(path)
 
 
