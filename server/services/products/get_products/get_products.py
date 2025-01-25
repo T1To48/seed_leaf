@@ -31,7 +31,7 @@ def get_product_by_id(product_id):
     return quick_response(product_details)
 
 
-@products_bp.route("/product-img/<string:product_id>")
+@products_bp.route("/product-img/<string:product_id>.jpg")
 def get_product_img(product_id):
     exec_statement = (
         """ SELECT product_category,product_img FROM products WHERE product_id = %s """
