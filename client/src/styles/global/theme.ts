@@ -3,7 +3,7 @@ const  fontSizes = {
     small: {
         mobile: "1.2rem",
         tablet: "1.3rem",
-        desktop: "1.5rem",
+        desktop: "1.4rem",
     },
     normal: {
         mobile: "1.3rem",
