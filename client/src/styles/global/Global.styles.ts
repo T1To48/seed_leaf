@@ -30,6 +30,12 @@ ul {
 img {
     max-width: 100%;
 }
+button,a{
+    cursor: pointer;
+}
+button, input, textarea, select {
+    font-family:"Open Sans", sans-serif;
+}
 `;
 
 export default GlobalStyles;
