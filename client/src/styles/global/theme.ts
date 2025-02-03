@@ -40,8 +40,9 @@ const theme = {
         secondary: "#FFFFFF",
         background: "#FFFFFF",
         text:"#4A4A4A",
-        accent:"#F5F5F5",
-        border:"#E0E0E0",
+        accent:"#A9A9A9",
+        hover:"#E0E0E0",
+        // border:"#E0E0E0",
         error:"#FF5252",
     },
     fontWeight:{
