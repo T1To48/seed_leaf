@@ -1,2 +1,2 @@
-import { FCWithChildren } from "./global.types";
+import type { FCWithChildren } from "./global.types";
 export type {FCWithChildren}
