@@ -1,6 +1,11 @@
+import type { PayloadAction } from "@reduxjs/toolkit";
+
+type IsMobile = boolean
 interface UiState {
-    isMobile: boolean;
-    counter:number
+    isMobile: IsMobile
 }
 
-export type{UiState}
+type ToggleMobile = PayloadAction<IsMobile>
+
+
+export type{UiState,ToggleMobile}
