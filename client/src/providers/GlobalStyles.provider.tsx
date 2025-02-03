@@ -1,10 +1,9 @@
-import { PropsWithChildren } from 'react'
 import { ThemeProvider } from "styled-components";
+import { theme, GlobalStyles } from '../styles';
 
-import { theme,GlobalStyles } from '../styles';
+import { FCWithChildren } from '../types';
 
 
-type FCWithChildren = React.FC<PropsWithChildren>
 
 
 
@@ -12,9 +11,10 @@ const GlobalStylesProvider: FCWithChildren = ({ children }) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <GlobalStyles/>
+            <GlobalStyles />
             {children}
-        </ThemeProvider >)
+        </ThemeProvider >
+    )
 }
 
 export default GlobalStylesProvider

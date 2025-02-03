@@ -28,7 +28,13 @@ ul {
     list-style: none;
 }
 img {
-    max-width: 100%;
+    /* max-width: 100%; */
+}
+button,a{
+    cursor: pointer;
+}
+button, input, textarea, select {
+    font-family:"Open Sans", sans-serif;
 }
 `;
 
