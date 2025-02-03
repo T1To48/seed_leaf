@@ -28,7 +28,7 @@ ul {
     list-style: none;
 }
 img {
-    max-width: 100%;
+    /* max-width: 100%; */
 }
 button,a{
     cursor: pointer;
