@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from "react"
 import styled from "styled-components"
-import { FCWithChildren } from "../../../types"
-const StyledNav = styled.nav<{ isHidden: boolean }>`
+import { FCWithChildren } from "src/types"
+const StyledNav = styled.nav<{ $isHidden: boolean }>`
 width:100%;
   padding: 0.5rem 2rem;
   position:fixed;
-  top:${({ isHidden }) => (isHidden ? "0px" : "70px")};
+  top:${({ $isHidden }) => ($isHidden ? "0px" : "70px")};
   right:0;
   left:0;
   z-index:900;
@@ -15,7 +15,6 @@ width:100%;
 const NavWrapper: FCWithChildren = ({ children }) => {
     const [isHidden, setIsHidden] = useState(false)
     const lastScrollY = useRef(window.scrollY);
-
     useEffect(() => {
         const togglePagesNav = () => {
             const currentScrollY = window.scrollY;
@@ -26,14 +25,12 @@ const NavWrapper: FCWithChildren = ({ children }) => {
                 setIsHidden(false)
             }
             lastScrollY.current = currentScrollY
-            console.log(lastScrollY)
         }
         window.addEventListener("scroll", togglePagesNav)
         return () => window.removeEventListener("scroll", togglePagesNav)
     }, [])
-
     return (
-        <StyledNav isHidden={true}>
+        <StyledNav $isHidden={isHidden}>
             {children}
         </StyledNav>
     )
