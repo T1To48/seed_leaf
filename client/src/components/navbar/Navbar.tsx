@@ -1,22 +1,17 @@
 import MainNav from "./mainNav/MainNav.component";
 import PagesNav from "./pagesNav/PagesNav.component";
+import HamburgerManu from "./hamburgerMenu/HamburgerManu.component";
 import { useAppSelector } from "src/redux";
 const Navbar = () => {
-    const isMobile = useAppSelector((state)=>state.ui.isMobile)
-return (
-<>
-<MainNav/>
-{!isMobile && <PagesNav/>}
-</>
-)
-}
-export default Navbar
-
-
-
-
-
-
+  const { isMobile, isHamburgerMenuOpen } = useAppSelector((state) => state.ui);
+  return (
+    <>
+      <MainNav />
+      {isMobile ? <HamburgerManu isOpen={isHamburgerMenuOpen} /> : <PagesNav />}
+    </>
+  );
+};
+export default Navbar;
 
 // const Navbar = () => {
 //   return (
@@ -42,7 +37,7 @@ export default Navbar
 //           <StyledNavItem>
 //             <StyledNavItemLink href="https://google.com">CONCEPT</StyledNavItemLink>
 //           </StyledNavItem>
-          
+
 //           <StyledNavItem>
 //             <StyledNavItemLink href="https://google.com">GALLERY</StyledNavItemLink>
 //           </StyledNavItem>
