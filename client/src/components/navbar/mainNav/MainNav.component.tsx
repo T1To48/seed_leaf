@@ -1,10 +1,13 @@
+import { useAppSelector } from "src/redux";
+
 import styled from "styled-components";
+
 import NavLogo from "./NavLogo.component";
 import NavSearch from "./NavSearch.component";
 import NavClientActions from "./NavClientActions.component";
 import { Bars3Icon } from "@heroicons/react/24/outline";
+
 const StyledNav = styled.nav`
-/* width:100%; */
   padding: 0.5rem 2rem;
   position:fixed;
   top:0;
@@ -22,7 +25,6 @@ const StyledNavContainer = styled.div`
   justify-content:center;
   align-items: center;
   gap:8rem;
-/* background-color: red; */
   @media (max-width:${({ theme }) => theme.siteMaxWidth.mobile}){
     gap: 0;
   justify-content:space-between;
@@ -39,29 +41,35 @@ const StyledMiddleNavItem=styled(StyledNavItem)`
   width:80%;
 `
 const StyledMobileNavSearch = styled.div`
-padding: 0.5rem 0 0.8rem 0;
+padding: 0.8rem  0;
 
 `
 const StyledMobileMenuIcon=styled.div`
-  width:4rem;
+  width:5rem;
   color: ${props=>props.theme.color.secondary};
 `
 const MainNav = () => {
+  const isMobile = useAppSelector((state)=>state.ui.isMobile)
+ 
   return (
     <StyledNav>
       <StyledNavContainer>
 
         <StyledNavItem>
-          {/* <StyledMobileMenuIcon>
-            <Bars3Icon />
-          </StyledMobileMenuIcon> */}
+
+          {isMobile && 
+          <StyledMobileMenuIcon>
+            <Bars3Icon  />
+          </StyledMobileMenuIcon> }
+
             <NavLogo />
         </StyledNavItem>
 
        
+         {!isMobile && 
          <StyledMiddleNavItem >
           <NavSearch />
-        </StyledMiddleNavItem> 
+        </StyledMiddleNavItem> }
         
         <StyledNavItem>
           <NavClientActions />
@@ -69,9 +77,10 @@ const MainNav = () => {
 
       </StyledNavContainer>
 
-      {/* <StyledMobileNavSearch>
+      {isMobile && 
+      <StyledMobileNavSearch>
         <NavSearch />
-      </StyledMobileNavSearch> */}
+      </StyledMobileNavSearch> }
 
     </StyledNav>
   )
