@@ -12,24 +12,26 @@ width:100%;
   };
   right:0;
   left:0;
-  z-index:1000;
+  z-index:900;
   background-color:${({ theme }) => theme.color.primary};
   transition: top 0.4s ease-in-out;
   `
 const NavWrapper: FCWithChildren = ({ children }) => {
     const [isHidden, setIsHidden] = useState(false)
+
     const lastScrollY = useRef(window.scrollY);
-    useEffect(() => {
-        const togglePagesNav = () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY.current + 10) {
-                setIsHidden(true)
-            }
-            else if (currentScrollY < lastScrollY.current - 10) {
-                setIsHidden(false)
-            }
-            lastScrollY.current = currentScrollY
+
+    const togglePagesNav = () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY.current + 10) {
+            setIsHidden(true)
         }
+        else if (currentScrollY < lastScrollY.current - 10) {
+            setIsHidden(false)
+        }
+        lastScrollY.current = currentScrollY
+    }
+    useEffect(() => {
         window.addEventListener("scroll", togglePagesNav)
         return () => window.removeEventListener("scroll", togglePagesNav)
     }, [])
