@@ -1,6 +1,6 @@
-import { store } from "../redux"
+import { store } from "src/redux"
 import { Provider } from "react-redux"
-import type { FCWithChildren } from "../types"
+import type { FCWithChildren } from "src/types"
 
 
 const ReduxStoreProvider:FCWithChildren = ({children}) => {
