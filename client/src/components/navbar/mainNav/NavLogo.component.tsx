@@ -16,7 +16,13 @@ align-items: center;
     width: 7rem;
 }
 @media (max-width:${({theme})=>theme.siteMaxWidth.mobile}){
-  
+  margin-left: 1rem;
+  & >:first-child{
+    width:0rem;
+  }
+  & >:last-child{
+    width: 6.5rem;
+}
 }
 `
 const NavLogo = () => {
