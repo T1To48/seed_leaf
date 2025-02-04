@@ -61,7 +61,14 @@ const theme = {
         tablet:"1024px",
         mobile:"768px",
     },
-    fontSize: fontSizes
+    fontSize: fontSizes,
+    navbar:{
+        mainNavHeight:{
+            mobile:"124px",
+            desktop:"70px"
+        }
+    }
+
 };
 
 export default theme
