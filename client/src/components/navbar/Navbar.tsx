@@ -1,11 +1,12 @@
 import MainNav from "./mainNav/MainNav.component";
 import PagesNav from "./pagesNav/PagesNav.component";
-
+import { useAppSelector } from "src/redux";
 const Navbar = () => {
+    const isMobile = useAppSelector((state)=>state.ui.isMobile)
 return (
 <>
 <MainNav/>
-<PagesNav/>
+{!isMobile && <PagesNav/>}
 </>
 )
 }
