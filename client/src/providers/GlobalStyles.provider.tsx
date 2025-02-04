@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import { theme, GlobalStyles } from '../styles';
+import { theme, GlobalStyles } from 'src/styles';
 
-import type { FCWithChildren } from '../types';
+import type { FCWithChildren } from 'src/types';
 
 
 
