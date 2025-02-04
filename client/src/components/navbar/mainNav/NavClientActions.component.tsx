@@ -17,10 +17,10 @@ const StyledActionsList=styled.div`
   `
   const StyledActionItem = styled.a`
     width:3.5rem;
-    color: ${props=>props.theme.color.secondary};
+    color: ${({theme}) => theme.color.secondary};
     transition:0.2s ease-out;
     &:hover{
-        color:${props=>props.theme.color.hover};
+        color:${({theme}) => theme.color.hover};
       }
   `
 
@@ -34,7 +34,7 @@ const StyledActionsList=styled.div`
       width: 1.5rem;
       top:7px;
       right:22px;
-      color:${props=>props.theme.color.error};
+      color:${({theme}) => theme.color.error};
       z-index: 100;
     }
   `

@@ -17,13 +17,13 @@ const StyledNavContainer = styled.div`
 `
 const StyledNavLink = styled.a`
     position:relative;
-    color:${props => props.theme.color.secondary};
+    color:${({theme}) => theme.color.secondary};
     transition:0.2s ease-out;
   
   &::before{
     content: "";
     position: absolute;
-    background: ${props => props.theme.color.secondary};
+    background: ${({theme}) => theme.color.secondary};
     bottom:-5px;
     left:50%;
     width:0;
