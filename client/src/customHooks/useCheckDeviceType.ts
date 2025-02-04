@@ -2,7 +2,7 @@ import {  useEffect } from 'react'
 import {
     useAppDispatch,
     toggleMobileMode
-} from '../redux'
+} from 'src/redux'
 
 const useCheckDeviceType = () => {
 

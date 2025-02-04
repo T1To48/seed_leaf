@@ -49,7 +49,7 @@ const NavSearch = () => {
     <StyledNavSearchContainer>
       <SearchInput  />
       <SearchButton>
-        <MagnifyingGlassIcon />
+        <MagnifyingGlassIcon width={28.14} height={28.14} />
         </SearchButton>
     </StyledNavSearchContainer>
   )

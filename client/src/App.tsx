@@ -1,5 +1,9 @@
 import { Navbar } from "./components"
+import { useCheckDeviceType } from "./customHooks"
+
 function App() {
+  useCheckDeviceType()
+  
   return (
     <>
       <Navbar/>
@@ -8,13 +12,3 @@ function App() {
 }
 
 export default App
-
-// useEffect(() => {
-//   window.addEventListener("resize",()=>{
-//     console.log(window.innerWidth)
-//   })
-
-//   return () => {
-//     window.removeEventListener("resize",()=>{})
-//   }
-// }, [])
