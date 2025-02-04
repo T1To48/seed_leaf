@@ -14,12 +14,12 @@ const StyledNav = styled.nav`
   right:0;
   left:0;
   z-index:1000;
-  background-color:${props => props.theme.color.primary};
+  background-color:${({theme}) => theme.color.primary};
 
   /* transition: background-color 0.2s ease-in-out; */
   `
 const StyledNavContainer = styled.div`
-  max-width:${props => props.theme.siteMaxWidth.desktop};
+  max-width:${({theme}) => theme.siteMaxWidth.desktop};
   margin:0 auto;
   display:flex;
   justify-content:center;
@@ -46,7 +46,7 @@ padding: 0.8rem  0;
 `
 const StyledMobileMenuIcon=styled.div`
   width:5rem;
-  color: ${props=>props.theme.color.secondary};
+  color: ${({theme}) => theme.color.secondary};
 `
 const MainNav = () => {
   const isMobile = useAppSelector((state)=>state.ui.isMobile)

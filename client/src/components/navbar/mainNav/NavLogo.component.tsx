@@ -28,8 +28,8 @@ align-items: center;
 const NavLogo = () => {
   return (
     <StyledNavLogo>
-        <img src={logo}  alt="SEED & LEAF"/>
-        <img src={logoString}  alt=""/>
+        <img src={logo}  alt=""/>
+        <img src={logoString}  alt="Seed & Leaf"/>
 
    </StyledNavLogo>
   )

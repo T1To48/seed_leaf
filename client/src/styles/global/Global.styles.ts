@@ -17,7 +17,7 @@ html{
 
  body {
     font-family:"Open Sans", sans-serif;
-    background:${props=>props.theme.color.background}
+    background:${({theme}) => theme.color.background}
 }
 
 a {
