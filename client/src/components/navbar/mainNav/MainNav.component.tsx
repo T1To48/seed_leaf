@@ -1,11 +1,11 @@
-import { useAppSelector } from "src/redux";
+import { toggleHamburgerMenu, useAppDispatch, useAppSelector } from "src/redux";
 
 import styled from "styled-components";
 
 import NavLogo from "./NavLogo.component";
 import NavSearch from "./NavSearch.component";
 import NavClientActions from "./NavClientActions.component";
-import { Bars3Icon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const StyledNav = styled.nav`
   padding: 0.5rem 2rem;
@@ -15,8 +15,13 @@ const StyledNav = styled.nav`
   left:0;
   z-index:1000;
   background-color:${({theme}) => theme.color.primary};
+  height:${({theme}) => theme.navbar.mainNavHeight.desktop};
 
   /* transition: background-color 0.2s ease-in-out; */
+  @media (max-width:${({ theme }) => theme.siteMaxWidth.mobile}){
+    height:${({theme}) => theme.navbar.mainNavHeight.mobile};
+  }
+
   `
 const StyledNavContainer = styled.div`
   max-width:${({theme}) => theme.siteMaxWidth.desktop};
@@ -44,13 +49,16 @@ const StyledMobileNavSearch = styled.div`
 padding: 0.8rem  0;
 
 `
-const StyledMobileMenuIcon=styled.div`
+const StyledMobileMenuIcon=styled.div<{$isOpen:boolean}>`
   width:5rem;
   color: ${({theme}) => theme.color.secondary};
 `
 const MainNav = () => {
-  const isMobile = useAppSelector((state)=>state.ui.isMobile)
- 
+  const dispatch = useAppDispatch()
+  const {isMobile,isHamburgerMenuOpen} = useAppSelector((state)=>state.ui)
+  const handleMobileMenuToggle= ()=>{
+    dispatch(toggleHamburgerMenu(!isHamburgerMenuOpen))
+  }
   return (
     <StyledNav>
       <StyledNavContainer>
@@ -58,8 +66,11 @@ const MainNav = () => {
         <StyledNavItem>
 
           {isMobile && 
-          <StyledMobileMenuIcon>
-            <Bars3Icon  />
+          <StyledMobileMenuIcon $isOpen={isHamburgerMenuOpen} onClick={handleMobileMenuToggle}>
+           {
+           isHamburgerMenuOpen?
+           <XMarkIcon/>:<Bars3Icon  />
+           } 
           </StyledMobileMenuIcon> }
 
             <NavLogo />
