@@ -46,7 +46,7 @@ const StyledMiddleNavItem=styled(StyledNavItem)`
   width:80%;
 `
 const StyledMobileNavSearch = styled.div`
-padding: 0.8rem  0;
+padding: 0.7rem  0;
 
 `
 const StyledMobileMenuIcon=styled.div<{$isOpen:boolean}>`
