@@ -4,8 +4,10 @@ import { Navbar } from "src/components"
 const SharedLayouts = () => {
   return (
     <div>
-        <Navbar/>
-        <Outlet/>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }
