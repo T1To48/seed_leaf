@@ -13,7 +13,6 @@ const StyledNavContainer = styled.div`
   font-size:${({ theme }) => theme.fontSize.normal.desktop} ;
   font-weight:${({ theme }) => theme.fontWeight.semiBold};
   letter-spacing: 1px;
-  
 `
 const StyledNavLink = styled.a`
     position:relative;
@@ -46,7 +45,7 @@ const PagesNav = () => {
                 </div>
 
                 <div>
-                    <StyledNavLink href="https://google.com">SHOP</StyledNavLink>
+                    <StyledNavLink href="https://google.com">STORE</StyledNavLink>
                 </div>
 
                 <div>

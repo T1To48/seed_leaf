@@ -64,9 +64,12 @@ const theme = {
     fontSize: fontSizes,
     navbar:{
         mainNavHeight:{
-            mobile:"124px",
+            mobile:"120px",
             desktop:"70px"
-        }
+        },
+
+        //* pages Nav is desktop only
+        pagesNavHeight:"50px"
     }
 
 };

@@ -52,7 +52,7 @@ const HamburgerManu:React.FC<{isOpen:boolean}> = ({isOpen}) => {
 
             <StyledManuItem>
                 <StyledItemLink href="google.com">
-                    SHOP
+                    STORE
                 </StyledItemLink>
                 <StyledItemIcon>
                     <ChevronRightIcon/>

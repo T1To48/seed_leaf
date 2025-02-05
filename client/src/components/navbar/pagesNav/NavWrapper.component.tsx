@@ -15,6 +15,8 @@ width:100%;
   z-index:900;
   background-color:${({ theme }) => theme.color.primary};
   transition: top 0.4s ease-in-out;
+  height: ${({theme})=>theme.navbar.pagesNavHeight};
+
   `
 const NavWrapper: FCWithChildren = ({ children }) => {
     const [isHidden, setIsHidden] = useState(false)
