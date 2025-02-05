@@ -8,7 +8,7 @@ const StyledNavSearchContainer = styled.div`
   border-radius: ${({theme}) => theme.borderRadius.medium};
   display: flex;
   justify-content: space-between;
-
+  box-shadow:inset 0px 0px 4px rgba(0,0,0, 0.5);
 `
 const SearchButton = styled.button`
   background:none;
