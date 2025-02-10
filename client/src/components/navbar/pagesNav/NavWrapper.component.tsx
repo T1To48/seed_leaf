@@ -18,6 +18,7 @@ width:100%;
   height: ${({theme})=>theme.navbar.pagesNavHeight};
 
   `
+const navToggleMarginFactor = 2
 const NavWrapper: FCWithChildren = ({ children }) => {
     const [isHidden, setIsHidden] = useState(false)
 
@@ -25,10 +26,10 @@ const NavWrapper: FCWithChildren = ({ children }) => {
 
     const togglePagesNav = () => {
         const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY.current + 10) {
+        if (currentScrollY > lastScrollY.current + navToggleMarginFactor) {
             setIsHidden(true)
         }
-        else if (currentScrollY < lastScrollY.current - 10) {
+        else if (currentScrollY < lastScrollY.current - navToggleMarginFactor) {
             setIsHidden(false)
         }
         lastScrollY.current = currentScrollY
