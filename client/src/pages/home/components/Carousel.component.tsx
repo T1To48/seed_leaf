@@ -9,7 +9,6 @@ const StyledCarouselSection = styled.section`
 position:relative;
 max-width: 90rem;
 padding: 0 4rem;
-margin-bottom: 5rem;
 @media (max-width:${({ theme }) => theme.siteMaxWidth.mobile}){
   padding: 0 1rem;
 
