@@ -30,6 +30,7 @@ const  fontSizes = {
         tablet: "3.4rem",
         desktop: "3.7rem",
     },
+    giant:"5rem"
 }
 
 
@@ -50,6 +51,7 @@ const theme = {
         medium: 500,
         semiBold: 600,
         bold: 700,
+        maxBold:800
     },
     borderRadius:{
         small: "8px",
