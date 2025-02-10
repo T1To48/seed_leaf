@@ -2,12 +2,12 @@ import styled from "styled-components";
 import heroImg from "src/assets/hero-img.png";
 import Carousel from "./components/Carousel.component";
 import CarouselSide from "./components/CarouselSide.component";
+import Facts from "./components/Facts.component";
 const StyledPageWrapper = styled.main`
   width: 100%;
   margin-top: 5rem;
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
   margin-top: 8rem;
-
   }
 `;
 
@@ -23,6 +23,16 @@ const StyledHeroSection = styled(StyledSection)`
   display: flex;
   justify-content: center;
   /* align-items: center; */
+  &::before{
+    content:"";
+    position:absolute;
+    background: rgba(255, 255, 255,0.2);
+    z-index: 5;
+    width:100%;
+    height: 100%;
+    /* top: 0; */
+    /* left:0; */
+  }
 `;
 const StyledImg = styled.img`
   position: absolute;
@@ -161,7 +171,7 @@ display: flex;
 justify-content: center;
 gap: 3vw;
 padding: 0 2rem;
-margin-top: 5rem;
+margin: 5rem 0;
 width: 100%;
 @media (max-width:${({ theme }) => theme.siteMaxWidth.mobile}){
 margin-top: 0rem;
@@ -169,6 +179,7 @@ gap: 0px;
 display: block;
 }
 `
+
 const Home = () => {
   return (
     <StyledPageWrapper>
@@ -193,6 +204,7 @@ const Home = () => {
       <CarouselSide/>
         <Carousel/>
       </StyledCarouselSection>
+      <Facts/>
     </StyledPageWrapper>
   );
 };
