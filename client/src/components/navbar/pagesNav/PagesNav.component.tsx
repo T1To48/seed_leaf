@@ -17,8 +17,8 @@ const StyledNavContainer = styled.div`
 const StyledNavLink = styled.a`
     position:relative;
     color:${({theme}) => theme.color.secondary};
-    transition:0.2s ease-out;
-  
+    transition:0.2s ease-out;  
+      
   &::before{
     content: "";
     position: absolute;
