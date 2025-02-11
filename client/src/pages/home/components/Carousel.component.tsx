@@ -49,7 +49,7 @@ width:100%;
 aspect-ratio: 10/14;
 transform: translateX(calc(${({ $translateValue }) => $translateValue}% + ${({ $translateValue }) => $translateValue === 0 ? 0 : $translateValue / 100 * 3 + 0.5}rem) );
 transition: transform 0.5s ease-in-out;
-box-shadow:0 .5rem 1.2rem rgba(0, 0, 0, 0.10);
+box-shadow:0 0.5rem 1.2rem rgba(0, 0, 0, 0.10);
 border-radius: ${({ theme }) => theme.borderRadius.small};
 
 
@@ -164,7 +164,9 @@ const Carousel = () => {
   }
   useEffect(()=>{
     const carousel=carouselRef?.current;
-    if (carousel) carousel.scrollLeft = 0;
+    if (carousel && isMobile) carousel.scrollLeft = 80;
+    else if (carousel) carousel.scrollLeft = 0;
+    console.log(carousel?.scroll)
     setCurrentIndex(0)
   },[isMobile])
 
