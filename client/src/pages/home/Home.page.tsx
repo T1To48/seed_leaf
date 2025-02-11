@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import heroImg from "src/assets/hero-img.png";
+// import heroImg from "src/assets/hero-img.png";
+import heroImg from "src/assets/hero_img.png";
 import Carousel from "./components/Carousel.component";
 import CarouselSide from "./components/CarouselSide.component";
 import Facts from "./components/Facts.component";
+import OrderStages from "./components/orderStages.component";
 const StyledPageWrapper = styled.main`
   width: 100%;
   margin-top: 5rem;
@@ -15,10 +17,11 @@ const StyledSection = styled.section`
   width: 100%;
   height: 70rem;
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
-    height: 40rem;
+    height: 50rem;
   }
 `;
 const StyledHeroSection = styled(StyledSection)`
+
   position: relative;
   display: flex;
   justify-content: center;
@@ -26,33 +29,36 @@ const StyledHeroSection = styled(StyledSection)`
   &::before{
     content:"";
     position:absolute;
-    background: rgba(255, 255, 255,0.2);
+    background: rgba(255, 255, 255,0.1);
     z-index: 5;
     width:100%;
     height: 100%;
-    /* top: 0; */
-    /* left:0; */
+    top: 0;
+    left:0;
   }
+  box-shadow: 0px 15px 15px rgba(200, 200, 200, 0.3);
+
 `;
-const StyledImg = styled.img`
+const StyledHeroImg = styled.img`
   position: absolute;
-  width: inherit;
+  width: 100%;
   height: inherit;
   object-fit: cover;
-  box-shadow: 0px 15px 15px rgba(200, 200, 200, 0.4);
-
+  /* box-shadow: 0px 15px 15px rgba(200, 200, 200, 0.4); */
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     /* height:37.2rem; */
     object-fit: cover;
   }
+  top: 0;
+    left:0;
 `;
 const StyledHeroContainer = styled.div`
   position: absolute;
-  /* text-align: center; */
-  margin-top: 20rem;
+  text-align: center;
+  margin-top: 25rem;
   z-index: 10;
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
-    margin-top: 8rem;
+    margin-top: 13rem;
   }
 `;
 
@@ -62,7 +68,6 @@ const StyledHeroTitle = styled.h1`
   font-weight: ${({ theme }) => theme.fontWeight.maxBold};
   letter-spacing: 3px;
   margin-bottom: 2rem;
-  text-align: center;
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     font-size: ${({ theme }) => theme.fontSize.xxLarge.mobile};
   }
@@ -76,7 +81,6 @@ const StyledHeroText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   gap: 3rem;
   & > *{
     border-radius:${({ theme }) => theme.borderRadius.small};
@@ -100,7 +104,6 @@ const StyledHeroText = styled.div`
     background: linear-gradient(-290deg,  #ffffff, rgba(209, 209, 209,0.4));
     box-shadow: 20px 0px 30px rgba(209, 209, 209,0.5);
   }
-
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     font-size: ${({ theme }) => theme.fontSize.large.mobile};
     gap: 1rem;
@@ -165,7 +168,7 @@ const StyledHeroBtn = styled.button`
   }
 
 `;
-const StyledCarouselSection=styled.section`
+const StyledCarouselSection = styled.section`
 display: flex;
 /* align-items: center; */
 justify-content: center;
@@ -184,7 +187,7 @@ const Home = () => {
   return (
     <StyledPageWrapper>
       <StyledHeroSection >
-        <StyledImg src={heroImg} />
+        <StyledHeroImg src={heroImg} />
 
         <StyledHeroContainer>
           <StyledHeroTitle>Fresh Nutrient Rich Microgreens</StyledHeroTitle>
@@ -199,12 +202,18 @@ const Home = () => {
             <StyledHeroBtn>Our Vision</StyledHeroBtn>
           </StyledHeroBtnsContainer>
         </StyledHeroContainer>
+
       </StyledHeroSection>
+
       <StyledCarouselSection>
-      <CarouselSide/>
-        <Carousel/>
+        <CarouselSide />
+        <Carousel />
       </StyledCarouselSection>
-      <Facts/>
+
+      <Facts />
+
+      <OrderStages />
+      
     </StyledPageWrapper>
   );
 };
