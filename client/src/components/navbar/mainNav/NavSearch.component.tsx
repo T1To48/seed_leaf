@@ -5,7 +5,7 @@ const StyledNavSearchContainer = styled.div`
   background-color:${({theme}) => theme.color.background};
   width:100%;
   height:4.5rem;
-  border-radius: ${({theme}) => theme.borderRadius.medium};
+  border-radius: ${({theme}) => theme.borderRadius.small};
   display: flex;
   justify-content: space-between;
   box-shadow:inset 0px 0px 4px rgba(0,0,0, 0.5);

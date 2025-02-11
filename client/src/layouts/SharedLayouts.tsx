@@ -5,9 +5,7 @@ const SharedLayouts = () => {
   return (
     <div>
       <Navbar />
-      <main>
         <Outlet />
-      </main>
     </div>
   )
 }
