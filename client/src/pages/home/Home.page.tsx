@@ -4,7 +4,7 @@ import heroImg from "src/assets/hero_img.png";
 import Carousel from "./components/Carousel.component";
 import CarouselSide from "./components/CarouselSide.component";
 import Facts from "./components/Facts.component";
-import OrderStages from "./components/orderStages.component";
+import OrderStages from "./components/OrderStages.component";
 const StyledPageWrapper = styled.main`
   width: 100%;
   margin-top: 5rem;
