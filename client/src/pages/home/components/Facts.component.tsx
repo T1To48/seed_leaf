@@ -11,6 +11,7 @@ const StyledFactsSection = styled.section`
   display: flex;
   justify-content: center;
   box-shadow: 0px 15px 15px rgba(200, 200, 200, 0.3);
+  
 
   &::before{
     content:"";
