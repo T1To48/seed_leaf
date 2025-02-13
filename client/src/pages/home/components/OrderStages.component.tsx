@@ -34,6 +34,7 @@ const StyledStagesContainer = styled.div`
 display: flex;
 margin-top: 8rem;
 justify-content: space-evenly;
+/* align-items: center; */
 position: relative;
 
 /* gap:14rem; */
@@ -58,11 +59,12 @@ position: relative;
 flex-direction: column;
 align-items: center;
 gap: 10rem;
-margin-left: 5vw;
+/* margin-left: 5vw; */
 /* left:20vw; */
+width: 100%;
 &::after{
 top:0;
-left:70%;
+left:75%;
 width:1rem;
 height:100%;
 }
@@ -82,8 +84,9 @@ const StyledStage = styled.div`
     justify-content: space-around;
     /* align-items: start; */
 
-    gap:0;
-    width: 35rem;
+    /* width: 35rem; */
+width: 100%;
+
     /* margin-right:5rem; */
     /* margin:0 1rem; */
 
@@ -94,8 +97,8 @@ const StyledStageCircle = styled.div`
 /* padding: 0; */
 /* margin: 0; */
 background: white ;
-width: 10rem;
-height: 10rem;
+width: 10.1rem;
+height: 10.1rem;
 border-radius: ${({theme})=>theme.borderRadius.circle};
 z-index: 10;
 position: relative;
@@ -106,8 +109,8 @@ align-items: center;
 &::before{
     content:"";
     position: absolute;
-    top:-1rem;
-    left:-1rem;
+    top:-0.95rem;
+    left:-0.95rem;
     width:12rem;
     height:12rem;
     z-index: 5;

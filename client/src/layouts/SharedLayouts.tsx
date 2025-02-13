@@ -1,11 +1,12 @@
 import { Outlet } from "react-router"
-import { Navbar } from "src/components"
+import { Navbar, Footer } from "src/components"
 
 const SharedLayouts = () => {
   return (
     <div>
       <Navbar />
         <Outlet />
+        <Footer/>
     </div>
   )
 }
