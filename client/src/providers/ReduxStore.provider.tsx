@@ -3,7 +3,7 @@ import { Provider } from "react-redux"
 import type { FCWithChildren } from "src/types"
 
 
-const ReduxStoreProvider:FCWithChildren = ({children}) => {
+const ReduxStoreProvider= ({children}: FCWithChildren ) => {
 
   return (
     <Provider store={store}>{children}</Provider>
