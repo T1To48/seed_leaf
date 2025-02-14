@@ -7,7 +7,7 @@ import type { FCWithChildren } from 'src/types';
 
 
 
-const GlobalStylesProvider: FCWithChildren = ({ children }) => {
+const GlobalStylesProvider= ({ children }: FCWithChildren) => {
 
     return (
         <ThemeProvider theme={theme}>
