@@ -1,5 +1,7 @@
 import { PropsWithChildren } from 'react'
 
-type FCWithChildren = React.FC<PropsWithChildren>
+type FCWithChildren = PropsWithChildren
 
-export type {FCWithChildren}
+type FCWithChildrenAndProps<T> = PropsWithChildren<T>
+
+export type {FCWithChildren, FCWithChildrenAndProps}
