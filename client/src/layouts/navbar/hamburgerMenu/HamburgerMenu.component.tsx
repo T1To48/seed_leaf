@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from "@heroicons/react/24/outline"
+import { NavLink } from "react-router"
 import styled from "styled-components"
-
 const StyledMenuWrapper = styled.div<{$isOpen:boolean}>`
 /* display: none; */
 position: fixed;
@@ -22,12 +22,15 @@ gap: 6rem;
 font-size:${({theme})=>theme.fontSize.large.mobile};
 `
 const StyledManuItem=styled.li`
-display: flex;
-justify-content: space-between;
-text-align: left;
 width: 100%;
 `
-const StyledItemLink=styled.a`
+const StyledMenuItemWrapper=styled(NavLink)`
+    display: flex;
+justify-content: space-between;
+text-align: left;
+`
+
+const StyledPageName=styled.p`
 color:${({theme})=>theme.color.secondary};
 letter-spacing: 2px;
 font-weight:${({theme})=>theme.fontWeight.semiBold};
@@ -36,45 +39,62 @@ const StyledItemIcon=styled.div`
     width:2.5rem;
     color:${({theme})=>theme.color.secondary};
 `
-const HamburgerManu = ({isOpen}:{isOpen:boolean}) => {
+const HamburgerManu = ({isOpen,handleClose}:{isOpen:boolean,handleClose:(event:React.MouseEvent<HTMLAnchorElement>)=>void}) => {
   return (
     <StyledMenuWrapper $isOpen={isOpen}>
         <StyledMenuList>
 
             <StyledManuItem>
-                <StyledItemLink href="google.com">
-                    HOME
-                </StyledItemLink>
-                <StyledItemIcon>
-                    <ChevronRightIcon/>
-                </StyledItemIcon>
+                <StyledMenuItemWrapper to="/" onClick={handleClose}>
+
+                    <StyledPageName >
+                        HOME
+                    </StyledPageName>
+
+                    <StyledItemIcon>
+                        <ChevronRightIcon/>
+                    </StyledItemIcon>
+
+                </StyledMenuItemWrapper>
             </StyledManuItem>
 
             <StyledManuItem>
-                <StyledItemLink href="google.com">
-                    STORE
-                </StyledItemLink>
-                <StyledItemIcon>
-                    <ChevronRightIcon/>
-                </StyledItemIcon>
+                <StyledMenuItemWrapper to="/store" onClick={handleClose}>
+
+                    <StyledPageName >
+                        STORE
+                    </StyledPageName>
+                    <StyledItemIcon>
+                        <ChevronRightIcon/>
+                    </StyledItemIcon>
+                </StyledMenuItemWrapper>
+
             </StyledManuItem>
 
             <StyledManuItem>
-                <StyledItemLink href="google.com">
+            <StyledMenuItemWrapper to="/store" onClick={handleClose}>
+
+                <StyledPageName >
                     CONCEPT
-                </StyledItemLink>
+                </StyledPageName>
                 <StyledItemIcon>
                     <ChevronRightIcon/>
                 </StyledItemIcon>
+                </StyledMenuItemWrapper>
+
             </StyledManuItem>
 
             <StyledManuItem>
-                <StyledItemLink href="google.com">
+            <StyledMenuItemWrapper to="/store" onClick={handleClose}>
+
+                <StyledPageName >
                     GALLERY
-                </StyledItemLink>
+                </StyledPageName>
                 <StyledItemIcon>
                     <ChevronRightIcon/>
                 </StyledItemIcon>
+                </StyledMenuItemWrapper>
+
             </StyledManuItem>
 
         </StyledMenuList>
