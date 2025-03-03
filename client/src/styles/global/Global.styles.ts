@@ -35,6 +35,7 @@ button,a{
 button, input, textarea, select {
     font-family:"Open Sans", sans-serif;
 }
+
 `;
 
 export default GlobalStyles;
