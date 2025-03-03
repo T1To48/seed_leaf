@@ -21,7 +21,7 @@ display: flex;
 align-items: center;
 gap: 3rem;
 padding:4rem;
-max-height: 45rem;
+max-height: 40rem;
 width: 100%;
 overflow: hidden;
 @media (max-width:${({ theme }) => theme.siteMaxWidth.mobile}){
