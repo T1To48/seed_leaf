@@ -15,6 +15,7 @@ const NavClientActions = () => {
       <StyledActionItem>
         <StyledProfileIcon>
           <XCircleIcon />
+          <div/>
           <UserIcon />
         </StyledProfileIcon>
       </StyledActionItem>

@@ -25,7 +25,16 @@ export const StyledProfileIcon = styled.div`
       width: 1.5rem;
       top:7px;
       right:22px;
-      color:${({ theme }) => theme.color.error};
+      color:#FF5252;
       z-index: 10;
+    }
+    & >:nth-child(2){
+      width: 1rem;
+      aspect-ratio: 1;
+      top:8.5px;
+      right:24px;
+      background: ${({ theme }) => theme.color.background};
+      z-index: 5;
+      border-radius: ${({ theme }) => theme.borderRadius.circle};
     }
   `
