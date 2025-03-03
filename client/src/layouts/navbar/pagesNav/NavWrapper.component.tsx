@@ -1,36 +1,15 @@
-import { useEffect, useState, useRef } from "react"
-import { StyledNavWrapper } from "./NavWrapper.styles"
-import type{ FCWithChildren } from "src/types"
-
-const navToggleMarginFactor = 2
+import { StyledNavWrapper } from "./NavWrapper.styles";
+import type { FCWithChildren } from "src/types";
+import { useToggleToolBar } from "src/customHooks";
 
 const NavWrapper = ({ children }: FCWithChildren) => {
-    const [isHidden, setIsHidden] = useState(false)
+  const isHidden = useToggleToolBar();
 
-    const lastScrollY = useRef(window.scrollY);
+  return (
+    <StyledNavWrapper $isHidden={isHidden}>
+        {children}
+    </StyledNavWrapper>
+    );
+};
 
-    const togglePagesNav = () => {
-        const currentScrollY = window.scrollY;
-        if (currentScrollY > lastScrollY.current + navToggleMarginFactor) {
-            setIsHidden(true)
-        }
-        else if (currentScrollY < lastScrollY.current - navToggleMarginFactor) {
-            setIsHidden(false)
-        }
-        lastScrollY.current = currentScrollY
-    }
-
-    useEffect(() => {
-        window.addEventListener("scroll", togglePagesNav)
-        return () => window.removeEventListener("scroll", togglePagesNav)
-    }, [])
-
-
-    return (
-        <StyledNavWrapper $isHidden={isHidden}>
-            {children}
-        </StyledNavWrapper>
-    )
-}
-
-export default NavWrapper
+export default NavWrapper;
