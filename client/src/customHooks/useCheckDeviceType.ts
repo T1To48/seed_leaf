@@ -21,8 +21,7 @@ const useCheckDeviceType = () => {
         window.addEventListener("resize", checkDeviceType)
         return () => window.removeEventListener("resize",checkDeviceType)
         
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [dispatch])
 }
 
 export default useCheckDeviceType
