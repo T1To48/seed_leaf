@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import heroImg from "src/assets/hero-img.png";
 import heroImg from "src/assets/hero_img.png";
 import Carousel from "./components/Carousel.component";
 import CarouselSide from "./components/CarouselSide.component";
