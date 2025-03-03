@@ -6,19 +6,19 @@ const PagesNav = () => {
     <NavWrapper>
       <StyledNavContainer>
         <div>
-          <StyledNavLink href="https://google.com">HOME</StyledNavLink>
+          <StyledNavLink to="/">HOME</StyledNavLink>
         </div>
 
         <div>
-          <StyledNavLink href="https://google.com">STORE</StyledNavLink>
+          <StyledNavLink to="/store">STORE</StyledNavLink>
         </div>
 
         <div>
-          <StyledNavLink href="https://google.com">CONCEPT</StyledNavLink>
+          <StyledNavLink to="https://google.com">CONCEPT</StyledNavLink>
         </div>
 
         <div>
-          <StyledNavLink href="https://google.com">GALLERY</StyledNavLink>
+          <StyledNavLink to="https://google.com">GALLERY</StyledNavLink>
         </div>
       </StyledNavContainer>
     </NavWrapper>
