@@ -1,5 +1,5 @@
 import styled from "styled-components"
-
+import { NavLink } from "react-router"
 export const StyledNavContainer = styled.div`
   max-width:${({theme}) => theme.siteMaxWidth.desktop};
   margin:0 auto;
@@ -13,7 +13,7 @@ export const StyledNavContainer = styled.div`
   font-weight:${({ theme }) => theme.fontWeight.semiBold};
   letter-spacing: 1px;
 `
-export const StyledNavLink = styled.a`
+export const StyledNavLink = styled(NavLink)`
     position:relative;
     color:${({theme}) => theme.color.secondary};
     transition:0.2s ease-out;  
