@@ -2,7 +2,7 @@ import { useCheckDeviceType } from "./customHooks";
 import { BrowserRouter, Routes, Route } from "react-router";
 
 import { SharedLayouts } from "./layouts";
-import { Home } from "./pages";
+import { Home, Store, ProductPage } from "./pages";
 function App() {
   useCheckDeviceType();
 
@@ -11,9 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayouts />}>
           <Route index element={<Home />} />
-          <Route path="products"  >
-            <Route index element={<h1 style={{marginTop:"12rem"}}>products</h1>} />
-            <Route path=":productId" element={<h1 style={{marginTop:"12rem"}}>product Page</h1>} />
+          <Route path="/store/:category?"  >
+            <Route index element={<Store/>} />
+            <Route path="view-product/:productId" element={<ProductPage/>} />
           </Route>
           <Route path="/concept" element={<h1>CONCEPT</h1>} />
           <Route path="/gallery" element={<h1>GALLERY</h1>} />
