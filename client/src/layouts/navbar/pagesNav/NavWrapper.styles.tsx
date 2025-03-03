@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const StyledNavWrapper = styled.nav<{ $isHidden: boolean }>`
-width:100%;
+width:100vw;
   padding: 0.5rem 2rem;
   position:fixed;
   top:${
