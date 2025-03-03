@@ -9,7 +9,7 @@ export const StyledMainNav = styled.nav`
   height: ${({ theme }) => theme.navbar.mainNavHeight.desktop};
   padding: 0.5rem 2rem;
   background-color: ${({ theme }) => theme.color.primary};
-
+  width: 100vw;
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     height: ${({ theme }) => theme.navbar.mainNavHeight.mobile};
   }
