@@ -1,5 +1,10 @@
 
 const  fontSizes = {
+    xSmall: {
+        mobile: "1rem",
+        tablet: "1.1rem",
+        desktop: "1.2rem",
+    },
     small: {
         mobile: "1.2rem",
         tablet: "1.3rem",
@@ -43,6 +48,7 @@ const theme = {
         text:"#4A4A4A",
         accent:"#A9A9A9",
         hover:"#E0E0E0",
+        bgHover:"#46a049",
         // border:"#E0E0E0",
         error:"#FF5252",
     },
@@ -70,7 +76,7 @@ const theme = {
             desktop:"70px"
         },
 
-        //* pages Nav is desktop only
+        //* pages Nav doesn't exist in the mobile mode
         pagesNavHeight:"50px"
     }
 
