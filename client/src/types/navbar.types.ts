@@ -1,6 +1,5 @@
-import type { FCWithChildrenAndProps } from "src/types/global.types";
+import type { FCWithChildrenAndProps,IsMobileBool } from "src/types/global.types";
 
-type IsMobileBool = boolean
 
 
 interface MainNavLeftProps {
