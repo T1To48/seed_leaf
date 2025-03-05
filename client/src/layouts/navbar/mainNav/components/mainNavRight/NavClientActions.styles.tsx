@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router";
 export const StyledActionsList = styled.div`
     display: flex;
     gap:4rem;
@@ -7,7 +7,7 @@ export const StyledActionsList = styled.div`
     gap:2rem;
     }
   `
-export const StyledActionItem = styled.a`
+export const StyledActionItem = styled(Link)`
     width:3.5rem;
     color: ${({ theme }) => theme.color.secondary};
     transition:0.2s ease-out;
