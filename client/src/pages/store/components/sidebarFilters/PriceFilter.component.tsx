@@ -40,7 +40,7 @@ const StyledInputsContainer = styled.div`
     text-align: center;
     width: 4.8rem;
     height:2.9rem;
-    border-radius: 8px;
+    border-radius: ${({theme})=>theme.borderRadius.small};
     outline: none;
     color:${({theme})=>theme.color.text};
     font-size: ${({theme})=>theme.fontSize.small.desktop};
