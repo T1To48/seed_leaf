@@ -12,7 +12,7 @@ import {
 const NavClientActions = () => {
   return (
     <StyledActionsList>
-      <StyledActionItem>
+      <StyledActionItem to="/login">
         <StyledProfileIcon>
           <XCircleIcon />
           <div/>
@@ -20,7 +20,7 @@ const NavClientActions = () => {
         </StyledProfileIcon>
       </StyledActionItem>
 
-      <StyledActionItem>
+      <StyledActionItem to="/cart">
         <ShoppingCartIcon />
       </StyledActionItem>
     </StyledActionsList>
