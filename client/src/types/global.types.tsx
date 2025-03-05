@@ -4,4 +4,6 @@ type FCWithChildren = PropsWithChildren
 
 type FCWithChildrenAndProps<T> = PropsWithChildren<T>
 
-export type {FCWithChildren, FCWithChildrenAndProps}
+type IsMobileBool = boolean
+
+export type {FCWithChildren, FCWithChildrenAndProps, IsMobileBool}
