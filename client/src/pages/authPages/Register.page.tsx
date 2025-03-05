@@ -5,8 +5,8 @@ import { EyeIcon,
 import { Link } from "react-router"
 const StyledPageWrapper = styled.main`
   max-width: ${({ theme }) => theme.siteMaxWidth.desktop};
-  margin: 15rem auto 8rem;
-  min-height: 55vh;
+  margin: 15rem auto 6rem;
+  min-height: 60vh;
   
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
   max-width: ${({ theme }) => theme.siteMaxWidth.mobile};
