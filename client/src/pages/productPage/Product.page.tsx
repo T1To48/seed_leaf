@@ -161,7 +161,7 @@ margin-bottom:1rem;
 
 `
 const StyledProductSize = styled.div`
-    background: rgba(76, 175, 80, 0.1);
+    background: ${({ theme }) => theme.color.secondaryGreen(0.2)};
     width: 75%;
     height:5rem;
     padding: 1rem 1.5rem;

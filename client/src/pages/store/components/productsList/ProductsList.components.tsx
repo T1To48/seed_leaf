@@ -26,10 +26,10 @@ const StyledProductCard = styled(Link)`
   aspect-ratio: 10/14;
   border-radius: ${({ theme }) => theme.borderRadius.small};
   box-shadow: 0 6.4px 40px rgba(75, 35, 94, 0.2),
-    0 3px 10px rgba(76, 175, 80, 0.3);
+    0 3px 10px ${({ theme }) => theme.color.secondaryGreen(0.3)};
   transition: box-shadow 0.4s ease;
   &:hover {
-    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 3px 10px ${({ theme }) => theme.color.secondaryGreen(0.2)};
 
     & img {
       transform: scale(1.4);
@@ -41,7 +41,7 @@ const StyledProductCard = styled(Link)`
   aspect-ratio: 13 / 14;
     &:hover {
       box-shadow: 0 6.4px 40px rgba(75, 35, 94, 0.2),
-      0 3px 10px rgba(76, 175, 80, 0.3);
+      0 3px 10px ${({ theme }) => theme.color.secondaryGreen(0.3)};
     & img {
       transform: scale(1.3);
     }
