@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import styled from "styled-components";
 import { ProductRow } from "./components";
 import { useAppSelector } from "src/redux";
@@ -175,6 +175,7 @@ const StyledCheckoutBtn = styled.button`
 
 `;
 const Cart = () => {
+    const navigate =useNavigate()
     const {isMobile}=useAppSelector((state)=>state.ui)
   return (
     <StyledPageWrapper>
@@ -198,7 +199,7 @@ const Cart = () => {
                 <p>Total</p>
                 <p>&#8364;10.50</p>
             </StyledCartTotal>
-            <StyledCheckoutBtn>Checkout</StyledCheckoutBtn>
+            <StyledCheckoutBtn onClick={()=>navigate("/checkout")}>Checkout</StyledCheckoutBtn>
         </StyledCheckout>
         </StyledCheckoutContainer>
     </StyledPageWrapper>
