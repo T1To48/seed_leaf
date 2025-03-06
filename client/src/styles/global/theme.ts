@@ -51,6 +51,7 @@ const theme = {
         bgHover:"#46a049",
         // border:"#E0E0E0",
         error:"#FF5252",
+        secondaryGreen: (opacity:number)=>`rgba(76, 175, 80, ${opacity})`
     },
     fontWeight:{
         normal: 400,
