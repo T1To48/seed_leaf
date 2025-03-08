@@ -2,12 +2,12 @@ import styled from "styled-components"
 import AmaranthImg from "src/assets/Amaranth.jpg"
 const StyledPageWrapper = styled.main`
   max-width: ${({ theme }) => theme.siteMaxWidth.desktop};
-  margin: 25rem auto 0;
+  margin: 22rem auto 2vh;
   min-height: 60vh;
   
   @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
   max-width: ${({ theme }) => theme.siteMaxWidth.mobile};
-  margin:18rem 0 10rem 0; 
+  margin:18rem 0 15rem 0; 
   min-height: 90vh;
 
   }
@@ -17,23 +17,59 @@ const StyledCheckoutSection=styled.section`
 display: flex;
 justify-content: center;
 width: 100%;
-min-height:65vh;
+gap: 4rem;
+
 @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     position: relative;
     flex-direction: column;
-gap: 4rem;
 }
 `;
 const StyledForm=styled.form``
 const StyledSide = styled.div`
-
+height: 50rem;
+@media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
+    height: initial;
+}
 `;
 const StyledLeftSide = styled(StyledSide)`
 width:50%;
 @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     width:100%;
+    padding: 0 1rem;
 
 }
+
+
+`
+const StyledAddressNotice = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+background: ${({theme})=>theme.color.secondaryGreen(0.1)};
+height: 8rem;
+margin-bottom:2rem;
+font-size: ${({ theme }) => theme.fontSize.small.desktop};
+font-weight: ${({ theme }) => theme.fontWeight.medium}; 
+box-shadow: 0 8px 30px ${({theme})=>theme.color.secondaryGreen(0.1)},
+ 0 -8px 30px ${({theme})=>theme.color.secondaryGreen(0.1)};
+border-radius: ${({ theme }) => theme.borderRadius.small};
+& p{
+text-align: center;
+    width: 75%;
+}
+@media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
+margin-bottom:4rem;
+height: 10rem;
+
+}
+`
+const StyledBoxShadow=styled.div`
+box-shadow: 0 8px 30px ${({theme})=>theme.color.secondaryGreen(0.1)},
+ 0 -8px 30px ${({theme})=>theme.color.secondaryGreen(0.1)};
+border-radius: ${({ theme }) => theme.borderRadius.small};
+
+padding: 4rem 0;
+height: 40rem;
 `
 const StyledTitle=styled.div`
 
@@ -124,9 +160,10 @@ display:flex ;
 justify-content: center;
 @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
 position: absolute;
-bottom:-10rem;
+left: 5%;
 width: 90%;
-margin: 0 2rem;
+bottom:-9rem;
+
 }
 `
 const StyledPayBtn = styled.button`
@@ -149,23 +186,29 @@ transition: 0.2s ease-in;
 }
 `
 const StyledRightSide = styled(StyledSide)`
-padding: 1rem 2rem;
 width: 40%;
+
 @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     width: 100%;
-
+    padding: 0 1rem;
 }
 
 `
 const  StyledOrderOverview = styled.div`
+padding: 4rem 2rem;
+border-radius: ${({ theme }) => theme.borderRadius.small};
 
+
+height: 100%;
+box-shadow: 0 8px 30px ${({theme})=>theme.color.secondaryGreen(0.1)},
+0 -8px 30px ${({theme})=>theme.color.secondaryGreen(0.1)};
 `
 const StyledProductsContainer=styled.div`
 display: flex;
 flex-direction: column;
 gap:3rem;
 padding: 0 1rem;
- max-height:28vh;
+ max-height:29vh;
 overflow-y: auto;
 @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
     max-height:33vh;
@@ -176,8 +219,9 @@ const StyledProduct = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-height:7rem;
+height:8rem;
 font-size: ${({theme})=>theme.fontSize.small.desktop};
+
 `
 const StyledProductContent=styled.div`
 display: flex;
@@ -198,11 +242,13 @@ border:1px solid ${({theme})=>theme.color.accent};
 border-radius: ${({theme})=>theme.borderRadius.small};
 & img{
     /* height:7rem; */
+    aspect-ratio: 12/13;
 width: 8rem;
         object-fit: cover;
     
 
 }
+
 `
 const StyledTotalPrice =styled.div`
 display:flex;
@@ -236,6 +282,9 @@ const Checkout = () => {
         <StyledCheckoutSection>
 
             <StyledLeftSide>
+                
+            <StyledAddressNotice><p>Delivery will be made to the address saved in your account details. Please ensure your address is up to date before completing your purchase.</p></StyledAddressNotice>
+                <StyledBoxShadow>
                 <StyledTitle>
                     <h1>Payment</h1>
 
@@ -268,6 +317,7 @@ const Checkout = () => {
                     <StyledPayBtn>Pay now</StyledPayBtn>
                     </StyledBtnWrapper>
                 </StyledPayment>
+                </StyledBoxShadow>
             </StyledLeftSide>
             <StyledRightSide>
                 <StyledOrderOverview>
