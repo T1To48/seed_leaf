@@ -1,5 +1,5 @@
 import { useCheckDeviceType } from "./customHooks";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 
 import { SharedLayouts } from "./layouts";
 import {
@@ -10,6 +10,7 @@ import {
   Checkout,
   Register,
   Login,
+  OrdersHistory,
 } from "./pages";
 
 function App() {
@@ -29,7 +30,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/user">
+            <Route index element={<Navigate to="/user/profile" replace/>}/>
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="orders-history" element={<OrdersHistory />} />
+            <Route path="profile" element={<h1 >USER-PROFILE</h1>} />
+
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
