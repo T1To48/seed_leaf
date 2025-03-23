@@ -52,7 +52,7 @@ const StyledProductsTable = styled.table`
 width:80%;
 margin:4rem auto 8rem;
 border-collapse: collapse;
-& > tr:first-child{
+&  thead{
     border-bottom:1px  solid ${({theme})=>theme.color.accent} ;
 }
 
@@ -152,12 +152,12 @@ const StyledCheckoutBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.2rem;
+  padding:  1.2rem;
   font-size: ${({ theme }) => theme.fontSize.small.desktop};
   font-weight: ${({ theme }) => theme.fontWeight.semiBold};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.small};
-  width: 70%;
+  width: 100%;
   gap: 1rem;
   color: ${({ theme }) => theme.color.secondary};
   background: ${({ theme }) => theme.color.primary};
@@ -184,13 +184,18 @@ const Cart = () => {
             <StyledLink to="/store">Continue Shopping</StyledLink>
         </StyledHeader>
         <StyledProductsTable>
+            <thead>
+
             <tr>
                <th>PRODUCT</th> 
               { !isMobile &&<th>QUANTITY</th> }
                <th>SUBTOTAL</th> 
             </tr>
+            </thead>
+            <tbody>
             <ProductRow isMobile={isMobile}/>
             <ProductRow isMobile={isMobile}/>
+            </tbody>
         </StyledProductsTable>
         <StyledCheckoutContainer>
         <textarea placeholder="Special Order Instructions" maxLength={255}/>
@@ -199,7 +204,7 @@ const Cart = () => {
                 <p>Total</p>
                 <p>&#8364;10.50</p>
             </StyledCartTotal>
-            <StyledCheckoutBtn onClick={()=>navigate("/checkout")}>Checkout</StyledCheckoutBtn>
+            <StyledCheckoutBtn onClick={()=>navigate("/user/checkout")}>Checkout</StyledCheckoutBtn>
         </StyledCheckout>
         </StyledCheckoutContainer>
     </StyledPageWrapper>
