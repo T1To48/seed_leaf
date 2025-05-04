@@ -1,3 +1,3 @@
-import DropDown from "./dropDown/DropDown.component";
+import DropDown from "./common/dropDown/DropDown.component";
 
 export {DropDown}
