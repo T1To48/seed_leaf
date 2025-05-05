@@ -1,5 +1,8 @@
-import type { FCWithChildren,IsMobileBool } from "./global.types";
-export type {FCWithChildren,IsMobileBool}
+import type { FCWithChildren, IsMobileBool, ChangeEventInput } from "./global.types";
+export type { FCWithChildren, IsMobileBool, ChangeEventInput }
 
-import type {MainNavLeftProps, MainNavSearchBar} from "./navbar.types"
-export type {MainNavLeftProps, MainNavSearchBar}
+import type { MainNavLeftProps, MainNavSearchBar } from "./navbar.types"
+export type { MainNavLeftProps, MainNavSearchBar }
+
+import { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes } from "./auth.types";
+export type { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes }
