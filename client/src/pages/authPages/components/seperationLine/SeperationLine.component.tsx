@@ -1,5 +1,5 @@
 import { StyledLine } from "./seperationLine.styles";
-const SeperationLine = ({text}:{text:string}) => {
+const SeperationLine = ({ text }: { text: string }) => {
   return (
     <StyledLine>
       <span></span>

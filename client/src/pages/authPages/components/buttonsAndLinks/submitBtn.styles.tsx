@@ -5,7 +5,6 @@ export const StyledBtn = styled.button`
   padding: 1rem;
   font-size: ${({ theme }) => theme.fontSize.medium.desktop};
   border-radius: ${({ theme }) => theme.borderRadius.small};
-
   border: none;
   background: ${({ theme }) => theme.color.primary};
   color: ${({ theme }) => theme.color.secondary};

@@ -1,30 +1,15 @@
-import { AuthInputsInfo } from "src/types";
 import Input from "./Input.component";
-import { ChangeEventHandlerInput } from "src/types/global.types";
-const InputsList = ({
-  inputsArr,
-  userData,
-  handleChange,
-}: {
-  inputsArr: AuthInputsInfo[];
-  userData: {
-    email: string;
-    password: string;
-    firstName?:string;
-    lastName?:string;
-    address?:string;
-  };
-  handleChange: ChangeEventHandlerInput;
-}) => {
+import type { InputsListProps } from "src/types";
+const InputsList = ({ inputsArr, userData, handleChange }: InputsListProps) => {
   return (
     <>
       {inputsArr.map((input) => {
-        const { type, label,field } = input;
+        const { type, label, field } = input;
         const value = userData[field];
         return (
           <Input
             type={type}
-            value={value??""}
+            value={value ?? ""}
             label={label}
             name={field}
             onChange={handleChange}

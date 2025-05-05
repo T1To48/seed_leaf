@@ -22,9 +22,9 @@ export const StyledFormTitle = styled.h1`
 `;
 
 export const StyledForm = styled.form`
-width:40%;
-text-align:center;
-@media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
-    width:80%;
-}
-`
+  width: 40%;
+  text-align: center;
+  @media (max-width: ${({ theme }) => theme.siteMaxWidth.mobile}) {
+    width: 80%;
+  }
+`;
