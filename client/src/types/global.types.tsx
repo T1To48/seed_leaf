@@ -1,9 +1,17 @@
-import { PropsWithChildren } from 'react'
+import { ChangeEvent, ChangeEventHandler, PropsWithChildren } from "react";
 
-type FCWithChildren = PropsWithChildren
+type FCWithChildren = PropsWithChildren;
 
-type FCWithChildrenAndProps<T> = PropsWithChildren<T>
+type FCWithChildrenAndProps<T> = PropsWithChildren<T>;
 
-type IsMobileBool = boolean
+type IsMobileBool = boolean;
 
-export type {FCWithChildren, FCWithChildrenAndProps, IsMobileBool}
+type ChangeEventInput = ChangeEvent<HTMLInputElement>;
+type ChangeEventHandlerInput=ChangeEventHandler<HTMLInputElement>;
+export type {
+  FCWithChildren,
+  FCWithChildrenAndProps,
+  IsMobileBool,
+  ChangeEventInput,
+  ChangeEventHandlerInput
+};
