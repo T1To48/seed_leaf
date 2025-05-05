@@ -1,6 +1,6 @@
 import {useAppSelector} from "src/redux";
 
-import { StyledMainNav, StyledNavContainer } from "./MainNav.styles";
+import { StyledMainNav, StyledNavContainer } from "./mainNav.styles";
 
 import {
   NavSearch,
