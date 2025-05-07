@@ -13,6 +13,7 @@ const InputsList = ({ inputsArr, userData, handleChange }: InputsListProps) => {
             label={label}
             name={field}
             onChange={handleChange}
+            key={field}
           />
         );
       })}
