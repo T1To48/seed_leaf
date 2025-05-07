@@ -4,5 +4,8 @@ export type { FCWithChildren, IsMobileBool, ChangeEventInput }
 import type { MainNavLeftProps, MainNavSearchBar } from "./navbar.types"
 export type { MainNavLeftProps, MainNavSearchBar }
 
-import { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes } from "./auth.types";
+import type { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes } from "./auth.types";
 export type { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes }
+
+import type { ProductProps } from "./cart.types";
+export type {ProductProps}

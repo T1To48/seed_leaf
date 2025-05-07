@@ -31,11 +31,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/user">
-            <Route index element={<Navigate to="/user/profile" replace/>}/>
+            <Route index element={<Navigate to="/user/profile" replace />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="orders-history" element={<OrdersHistory />} />
-            <Route path="profile" element={<h1 >USER-PROFILE</h1>} />
-
+            <Route path="profile" element={<h1>USER-PROFILE</h1>} />
           </Route>
         </Route>
       </Routes>
