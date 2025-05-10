@@ -15,4 +15,7 @@ export type { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnT
 import type { ProductProps } from "./cart.types";
 export type { ProductProps }
 
+import type { QuantityBtnProps } from "./productPage.types";
+export type { QuantityBtnProps }
+
 
