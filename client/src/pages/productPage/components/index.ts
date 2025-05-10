@@ -1,3 +1,5 @@
-import ProductBreadCrumbs from "./productBreadCrumbs/ProductBreadCrumbs.component";
+import BreadCrumbs from "./productBreadCrumbs/ProductBreadCrumbs.component";
+import ProductImg from "./productImg/ProductImg.component";
+import ProductCard from "./productCard/ProductCard.component";
 
-export {ProductBreadCrumbs}
+export { BreadCrumbs, ProductImg, ProductCard }
