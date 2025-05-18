@@ -108,7 +108,8 @@ const PriceFilter = () => {
   const [[minLimit, maxLimit], setMinMaxLimit] = useState([0, 100]);
   const [currentMinMax, setCurrentMinMax] = useState([0, 100]);
   const handlePriceRange = (newValue: number[] | number) => {
-    setCurrentMinMax(newValue as number[]);
+    if(typeof newValue === "number") return ;
+    setCurrentMinMax(newValue);
   };
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
