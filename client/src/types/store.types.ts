@@ -7,6 +7,11 @@ const SORTMETHODS = {
 } as const;
 type SortMethods = keyof typeof SORTMETHODS;
 
+interface SortOption {
+    id: SortMethods;
+    text: string;
+}
+
 const CATEGORIES = {
     microgreens: "microgreens",
     herbs: "herbs",
@@ -14,6 +19,10 @@ const CATEGORIES = {
 } as const;
 type Categories = keyof typeof CATEGORIES;
 
+interface Filter {
+    title: "Category" | "Price",
+    value: Categories | number
+}
 
 export { CATEGORIES, SORTMETHODS }
-export type { SortMethods, Categories }
+export type { SortMethods,SortOption, Categories, Filter }
