@@ -1,27 +1,28 @@
-import { useCallback, useState } from "react"
-import styled from "styled-components"
-import {ProductsList,ProductsPagination} from "../index"
-import MobileSortAndFilterBar from "./MobileSortAndFilterBar.component"
-import FilterAndSearchLayer from "./FilterAndSearchLayer.component"
-const MobileStoreContainer = styled.section`
-    
-`
+import { useState, useCallback } from "react";
+import { ProductsList, ProductsPagination } from "../index";
+import { SortFilterModal, StickyTopbar } from "./components";
 const MobileStore = () => {
-  const [isSortOrFilterOpen,setIsSortOrFilterOpen]=useState<"sort"|"filter"|null>(null)
-  const toggleSortOrFilter=useCallback((LayerStatus:"sort"|"filter"|null)=>{
-    setIsSortOrFilterOpen(LayerStatus)
-  },[])
- 
+  const [modalStatus, setModalStatus] = useState<"sort" | "filter" | null>(
+    null
+  );
+
+  const toggleModal = useCallback((LayerStatus: "sort" | "filter" | null) => {
+    setModalStatus(LayerStatus);
+  }, []);
   return (
     <>
-        <FilterAndSearchLayer closeSortOrFilter={toggleSortOrFilter} layerStatus={isSortOrFilterOpen}/>
-    <MobileStoreContainer>
-        <MobileSortAndFilterBar toggleSortOrFilter={toggleSortOrFilter}/>
-        <ProductsList/>
-        <ProductsPagination/>
-    </MobileStoreContainer>
-    </>
-  )
-}
+      <SortFilterModal
+        modalStatus={modalStatus}
+        closeModal={() => toggleModal(null)}
+      />
 
-export default MobileStore
+      <section>
+        <StickyTopbar openModal={toggleModal} />
+        <ProductsList />
+        <ProductsPagination />
+      </section>
+    </>
+  );
+};
+
+export default MobileStore;

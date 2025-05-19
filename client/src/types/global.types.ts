@@ -20,14 +20,16 @@ type ChangeEventInput = ChangeEvent<HTMLInputElement>;
 type ChangeEventHandlerInput = ChangeEventHandler<HTMLInputElement>;
 
 type ClickEventBtn = MouseEvent<HTMLButtonElement>;
-
 type ClickEventHandlerBtn = MouseEventHandler<HTMLButtonElement>;
+
+type ClickEventDiv = MouseEvent<HTMLDivElement>;
+type ClickEventHandlerDiv = MouseEventHandler<HTMLDivElement>;
 
 interface Product {
   title: string;
   img: string;
   price: number;
-  description:string;
+  description: string;
 }
 
 export type {
@@ -39,5 +41,7 @@ export type {
   ChangeEventHandlerInput,
   ClickEventBtn,
   ClickEventHandlerBtn,
+  ClickEventDiv,
+  ClickEventHandlerDiv,
   Product
 };

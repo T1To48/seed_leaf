@@ -1,5 +1,5 @@
-import type { FCWithChildren, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, Product } from "./global.types";
-export type { FCWithChildren, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, Product }
+import type { FCWithChildren, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, ClickEventDiv, Product } from "./global.types";
+export type { FCWithChildren, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, ClickEventDiv, Product }
 
 import type { MainNavLeftProps, MainNavSearchBar } from "./navbar.types"
 export type { MainNavLeftProps, MainNavSearchBar }
@@ -9,13 +9,18 @@ export type { Direction, StageIconProps, StageProps }
 import { DIRECTIONS } from "./home.types";
 export { DIRECTIONS }
 
+import type { SortMethods, SortOption, Filter, Categories } from "./store.types";
+export type { SortMethods, SortOption, Filter, Categories }
+import { SORTMETHODS, CATEGORIES } from "./store.types";
+export { SORTMETHODS, CATEGORIES }
+
 import type { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes } from "./auth.types";
 export type { FormProps, InputProps, InputsListProps, AuthInputsInfo, SubmitBtnTypes }
 
 import type { ProductProps } from "./cart.types";
 export type { ProductProps }
 
-import type { QuantityBtnProps } from "./productPage.types";
-export type { QuantityBtnProps }
+import type { ProductDB, QuantityBtnProps } from "./productPage.types";
+export type { ProductDB, QuantityBtnProps }
 
 

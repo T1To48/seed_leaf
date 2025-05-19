@@ -59,7 +59,6 @@ const StyledCardImg = styled.img`
   width: 65%;
   transform: scale(1.3);
   }
-
 `;
 const StyledCardContent = styled.div`
   display: grid;

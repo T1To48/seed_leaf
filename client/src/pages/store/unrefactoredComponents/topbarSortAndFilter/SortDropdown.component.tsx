@@ -59,33 +59,32 @@ transition:  0.2s ease-out;
 &:hover{
   background: ${({theme})=>theme.color.hover};
 }
-
 `;
 
 const SortDropdown = () => {
-  const [isDropDownOpen,setIsDropDownOpen]=useState(false)
+  const [isDropdownOpen,setIsDropdownOpen]=useState(false)
 
 
   const handleDropDownClick=(e:MouseEvent<HTMLDivElement>)=>{
     e.stopPropagation()
-    setIsDropDownOpen((preVal)=>!preVal)
+    setIsDropdownOpen((preVal)=>!preVal)
   }
   
   useEffect(()=> {
-    if (!isDropDownOpen) return;
-    const closeDropDown =()=>setIsDropDownOpen(false)
+    if (!isDropdownOpen) return;
+    const closeDropDown =()=>setIsDropdownOpen(false)
     document.documentElement.addEventListener("click",closeDropDown)
     return ()=>{
       document.documentElement.removeEventListener("click",closeDropDown)
     }
-  },[isDropDownOpen])
+  },[isDropdownOpen])
 
 
   return (
     <StyledDropdownContainer>
-      <StyledDropdownOptions $isOpen={isDropDownOpen}>
+      <StyledDropdownOptions $isOpen={isDropdownOpen}>
 
-        <StyledDropdownDefaultItem onClick={handleDropDownClick}>Alphabetically: A to Z {isDropDownOpen?<ChevronUpIcon/>:<ChevronDownIcon/>}</StyledDropdownDefaultItem>
+        <StyledDropdownDefaultItem onClick={handleDropDownClick}>Alphabetically: A to Z {isDropdownOpen?<ChevronUpIcon/>:<ChevronDownIcon/>}</StyledDropdownDefaultItem>
           <div></div>
         <StyledDropdownItem >Alphabetically: Z to A</StyledDropdownItem>
         <StyledDropdownItem >Price: High to Low</StyledDropdownItem>
