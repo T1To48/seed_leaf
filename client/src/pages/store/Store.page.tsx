@@ -10,7 +10,7 @@ import {
   ProductsList,
   ProductsPagination,
   MobileStore,
-} from "./componentsRefactor";
+} from "./components";
 
 const Store = () => {
   const { isMobile } = useAppSelector((state) => state.ui);

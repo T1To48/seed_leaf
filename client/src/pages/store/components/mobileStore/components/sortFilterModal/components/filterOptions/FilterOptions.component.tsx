@@ -1,7 +1,7 @@
 import {
   CategoriesFilter,
   PriceFilter,
-} from "src/pages/store/componentsRefactor/sidebar/components";
+} from "src/pages/store/components/sidebar/components";
 
 const FilterOptions = () => {
   return (

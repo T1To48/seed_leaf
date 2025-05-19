@@ -1,29 +1,28 @@
-import { useCallback, useState } from "react"
-import {
-  // ProductsList,
-  ProductsPagination} from "../index"
-import { ProductsList } from "../../componentsRefactor"
-import MobileSortAndFilterBar from "./MobileSortAndFilterBar.component"
-import FilterAndSearchLayer from "./FilterAndSearchLayer.component"
-
+import { useState, useCallback } from "react";
+import { ProductsList, ProductsPagination } from "../index";
+import { SortFilterModal, StickyTopbar } from "./components";
 const MobileStore = () => {
-  const [isSortOrFilterOpen,setIsSortOrFilterOpen]=useState<"sort"|"filter"|null>(null)
-  
-  const toggleSortOrFilter=useCallback((LayerStatus:"sort"|"filter"|null)=>{
-    setIsSortOrFilterOpen(LayerStatus)
-  },[])
- 
+  const [modalStatus, setModalStatus] = useState<"sort" | "filter" | null>(
+    null
+  );
+
+  const toggleModal = useCallback((LayerStatus: "sort" | "filter" | null) => {
+    setModalStatus(LayerStatus);
+  }, []);
   return (
     <>
-    {/* add condition that retun <FilterAndSearchLayer> only when isSortOrFilterOpen !== null */}
-        <FilterAndSearchLayer closeSortOrFilter={toggleSortOrFilter} layerStatus={isSortOrFilterOpen}/>
-    <section>
-        <MobileSortAndFilterBar toggleSortOrFilter={toggleSortOrFilter}/>
-        <ProductsList/>
-        <ProductsPagination/>
-    </section>
-    </>
-  )
-}
+      <SortFilterModal
+        modalStatus={modalStatus}
+        closeModal={() => toggleModal(null)}
+      />
 
-export default MobileStore
+      <section>
+        <StickyTopbar openModal={toggleModal} />
+        <ProductsList />
+        <ProductsPagination />
+      </section>
+    </>
+  );
+};
+
+export default MobileStore;
