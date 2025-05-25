@@ -1,16 +1,9 @@
-import { useNavigate, useParams } from "react-router";
 import type { RouteParams } from "src/types";
 import { StyledLinksWrapper } from "./sidebarLinks.styles";
-import { linksArr } from "./linksArr";
+import { linksArr } from "src/constants";
 import SidebarLinkItem from "./sidebarLinkItem/SidebarLinkItem.component";
-const SidebarLinks = () => {
-  const navigate = useNavigate();
-  const { currentPage } = useParams<{ currentPage: RouteParams }>();
 
-  if (!currentPage) {
-    navigate("/orders");
-    return null;
-  }
+const SidebarLinks = ({ currentPage }: { currentPage: RouteParams }) => {
   return (
     <StyledLinksWrapper>
       {linksArr.map((link) => (
