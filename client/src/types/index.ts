@@ -1,5 +1,5 @@
-import type { FCWithChildren, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, ClickEventDiv, Product } from "./global.types";
-export type { FCWithChildren, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, ClickEventDiv, Product }
+import type { FCWithChildren, FCWithChildrenAndProps, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, ClickEventDiv, Product } from "./global.types";
+export type { FCWithChildren, FCWithChildrenAndProps, IsMobileBool, ChangeEventInput, ClickEventHandlerBtn, ClickEventDiv, Product }
 
 import type { MainNavLeftProps, MainNavSearchBar } from "./navbar.types"
 export type { MainNavLeftProps, MainNavSearchBar }
@@ -23,4 +23,7 @@ export type { ProductProps }
 import type { ProductDB, QuantityBtnProps } from "./productPage.types";
 export type { ProductDB, QuantityBtnProps }
 
+
+import type { RouteParams, SidebarLinkData, LinkItemProps } from "./userAccount.types";
+export type { RouteParams, SidebarLinkData, LinkItemProps }
 
