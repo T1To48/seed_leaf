@@ -1,5 +1,5 @@
 
-const  fontSizes = {
+const fontSizes = {
     xSmall: {
         mobile: "1rem",
         tablet: "1.1rem",
@@ -35,7 +35,7 @@ const  fontSizes = {
         tablet: "3.4rem",
         desktop: "3.7rem",
     },
-    giant:"5rem"
+    giant: "5rem"
 }
 
 
@@ -45,40 +45,40 @@ const theme = {
         primary: "#4CAF50",
         secondary: "#FFFFFF",
         background: "#FFFFFF",
-        text:"#4A4A4A",
-        accent:"#A9A9A9",
-        hover:"#E0E0E0",
-        bgHover:"#46a049",
+        text: "#4A4A4A",
+        accent: "#A9A9A9",
+        hover: "#E0E0E0",
+        bgHover: "#46a049",
         // border:"#E0E0E0",
-        error:"#FF5252",
-        secondaryGreen: (opacity:number)=>`rgba(76, 175, 80, ${opacity})`
+        error: "#FF5252",
+        secondaryGreen: (opacity: number) => `rgba(76, 175, 80, ${opacity})`
     },
-    fontWeight:{
+    fontWeight: {
         normal: 400,
         medium: 500,
         semiBold: 600,
         bold: 700,
-        maxBold:800
+        maxBold: 800
     },
-    borderRadius:{
+    borderRadius: {
         small: "8px",
         medium: "30px",
         circle: "50%",
     },
-    siteMaxWidth:{
-        desktop:"1300px",
-        tablet:"1024px",
-        mobile:"768px",
+    siteMaxWidth: {
+        desktop: "1300px",
+        tablet: "1024px",
+        mobile: "768px",
     },
     fontSize: fontSizes,
-    navbar:{
-        mainNavHeight:{
-            mobile:"120px",
-            desktop:"70px"
+    navbar: {
+        mainNavHeight: {
+            mobile: "120px",
+            desktop: "70px"
         },
 
         //* pages Nav doesn't exist in the mobile mode
-        pagesNavHeight:"50px"
+        pagesNavHeight: "50px"
     }
 
 };
