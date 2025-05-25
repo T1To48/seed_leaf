@@ -24,6 +24,6 @@ import type { ProductDB, QuantityBtnProps } from "./productPage.types";
 export type { ProductDB, QuantityBtnProps }
 
 
-import type { RouteParams, SidebarLinkData, LinkItemProps } from "./userAccount.types";
-export type { RouteParams, SidebarLinkData, LinkItemProps }
+import type { RouteParams, SidebarLinkData, LinkItemProps, AccountHeaderProps } from "./userAccount.types";
+export type { RouteParams, SidebarLinkData, LinkItemProps, AccountHeaderProps }
 
