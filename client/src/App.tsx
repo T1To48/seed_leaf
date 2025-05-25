@@ -10,10 +10,10 @@ import {
   Checkout,
   Register,
   Login,
-  OrdersHistory,
+  UserAccount,
 } from "./pages";
 
-function App() {
+const App = () => {
   useCheckDeviceType();
 
   return (
@@ -31,15 +31,21 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/user">
-            <Route index element={<Navigate to="/user/profile" replace />} />
+            <Route
+              index
+              element={<Navigate to="/user/account/orders" replace />}
+            />
+            <Route
+              path="account"
+              element={<Navigate to="/user/account/orders" replace />}
+            />
             <Route path="checkout" element={<Checkout />} />
-            <Route path="orders-history" element={<OrdersHistory />} />
-            <Route path="profile" element={<h1>USER-PROFILE</h1>} />
+            <Route path="account/:currentPage" element={<UserAccount />} />
           </Route>
         </Route>
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
