@@ -22,6 +22,7 @@ export const StyledLinkWrapper = styled(Link)<{ $isCurrentPage: boolean }>`
     height: 100%;
     width: 0.5rem;
   }
+
   &:hover {
     & > :first-child {
       & > :last-child {
@@ -47,6 +48,8 @@ export const StyledLinkIconWrapper = styled.div`
 export const StyledLinkText = styled.div`
   font-size: ${({ theme }) => theme.fontSize.small.desktop};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
+  transition: 0.1s linear;
+
 `;
 
 export const StyledArrowIcon = styled(ChevronRightIcon)`

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeaderWrapper = styled.header`
   width: 100%;
-  height: 15%;
+  height: 10%;
   display: flex;
   align-items: center;
 `;

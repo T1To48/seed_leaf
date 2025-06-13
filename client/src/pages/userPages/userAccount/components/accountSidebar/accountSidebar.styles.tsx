@@ -8,6 +8,4 @@ export const StyledSidebarWrapper = styled.aside`
   width: 25%;
   margin: 3rem 0 2rem;
   padding: 1rem 0;
-  /* border-right: 0.12rem solid ${({ theme }) => theme.color.accent}; */
-  /* background-color: green; */
 `;

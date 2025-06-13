@@ -20,7 +20,8 @@ const productsArr: {
     imgSrc: AmaranthImg,
     name: "Amaranth",
     price: 15,
-  }
+  },
+  
 ];
 
 const ProductsList = () => {
